@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="View the premium photography showcase of Indian travel destinations. Browse mountains, heritage sites, beaches, nature parks, and adventure activities.">
+  <title>Luxury Photo Gallery | Explore Incredible India</title>
+  
+  <!-- CSS Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="loader-spinner" role="status"></div>
+    <div class="loader-text">PHOTO GALLERY</div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom scrolled" id="main-navbar">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <i class="fas fa-dharmachakra fa-spin text-gold" style="animation-duration: 20s;"></i>
+        <span>Incredible India</span>
+      </a>
+      
+      <button class="navbar-toggler navbar-toggler-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon-custom"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 navbar-collapse-custom">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="destinations.html">Destinations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="packages.html">Tour Packages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom active" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center gap-3">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+            <i class="fas fa-sun"></i>
+          </button>
+          <a href="booking.html" class="btn btn-premium">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <section class="page-banner" style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1920');">
+    <div class="page-banner-content">
+      <div class="container">
+        <span class="page-breadcrumb">Visual Grandeur</span>
+        <h1 class="page-banner-title">Premium Travel Gallery</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Gallery Grid Section -->
+  <section class="section-padding">
+    <div class="container">
+      
+      <!-- Category Buttons -->
+      <div class="gallery-categories" data-aos="fade-up">
+        <button class="gallery-cat-btn active" data-filter="all">All Experiences</button>
+        <button class="gallery-cat-btn" data-filter="mountains">Mountains</button>
+        <button class="gallery-cat-btn" data-filter="beaches">Beaches</button>
+        <button class="gallery-cat-btn" data-filter="heritage">Heritage Places</button>
+        <button class="gallery-cat-btn" data-filter="nature">Nature</button>
+        <button class="gallery-cat-btn" data-filter="adventure">Adventure</button>
+      </div>
+
+      <!-- Masonry Layout (Responsive Row Column) -->
+      <div class="row g-4" id="gallery-grid">
+        
+        <!-- Mountains 1 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up">
+          <div class="gallery-item height-long" data-category="mountains">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=800" alt="Snow Peaks Kashmir">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Himalayan Majesty</h3>
+              <span class="gallery-item-cat">Mountains</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Beaches 1 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="50">
+          <div class="gallery-item height-short" data-category="beaches">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Goa Sunset Shore">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Golden Shores</h3>
+              <span class="gallery-item-cat">Beaches</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Heritage 1 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="100">
+          <div class="gallery-item" data-category="heritage">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=800" alt="Taj Mahal Marble">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Taj Mahal</h3>
+              <span class="gallery-item-cat">Heritage Places</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nature 1 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="150">
+          <div class="gallery-item height-short" data-category="nature">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&q=80&w=800" alt="Tea Estate Munnar">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Verdant Munnar</h3>
+              <span class="gallery-item-cat">Nature</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adventure 1 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="200">
+          <div class="gallery-item" data-category="adventure">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1530866495561-507c9faab2ed?auto=format&fit=crop&q=80&w=800" alt="Rishikesh River Rafting">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Rishikesh River Rafting</h3>
+              <span class="gallery-item-cat">Adventure</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mountains 2 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="250">
+          <div class="gallery-item height-long" data-category="mountains">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?auto=format&fit=crop&q=80&w=800" alt="Leh Ladakh Pass">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">High Passes of Ladakh</h3>
+              <span class="gallery-item-cat">Mountains</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Heritage 2 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="300">
+          <div class="gallery-item height-long" data-category="heritage">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1600100397608-f010e423b971?auto=format&fit=crop&q=80&w=800" alt="Hampi Stone Chariot">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Hampi Stone Temple</h3>
+              <span class="gallery-item-cat">Heritage Places</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nature 2 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="350">
+          <div class="gallery-item" data-category="nature">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1593693411515-c202e974fe08?auto=format&fit=crop&q=80&w=800" alt="Alleppey Backwater Channel">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Alleppey Houseboat</h3>
+              <span class="gallery-item-cat">Nature</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Beaches 2 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="400">
+          <div class="gallery-item height-short" data-category="beaches">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1544256718-3bcf237f3974?auto=format&fit=crop&q=80&w=800" alt="Kanyakumari Oceans Converge">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Kanyakumari Shore</h3>
+              <span class="gallery-item-cat">Beaches</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adventure 2 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="450">
+          <div class="gallery-item" data-category="adventure">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1551882547-ff40c63fe5fa?auto=format&fit=crop&q=80&w=800" alt="Gulmarg Snow Skiing">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Gulmarg Ski Slopes</h3>
+              <span class="gallery-item-cat">Adventure</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mountains 3 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="500">
+          <div class="gallery-item height-short" data-category="mountains">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=800" alt="Western Ghats Ooty">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Mist Over Western Ghats</h3>
+              <span class="gallery-item-cat">Mountains</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Beaches 3 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="550">
+          <div class="gallery-item" data-category="beaches">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1589979482837-e74f2e145060?auto=format&fit=crop&q=80&w=800" alt="Andaman Islands Palms">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Andaman Crystal Waters</h3>
+              <span class="gallery-item-cat">Beaches</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Heritage 3 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="600">
+          <div class="gallery-item height-long" data-category="heritage">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&q=80&w=800" alt="Amber Fort Stone Walls">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Amer Fort Palace</h3>
+              <span class="gallery-item-cat">Heritage Places</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Nature 3 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="650">
+          <div class="gallery-item height-short" data-category="nature">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&q=80&w=800" alt="Saffron Meadows Kashmir">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Kashmir Saffron Meadows</h3>
+              <span class="gallery-item-cat">Nature</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Adventure 3 -->
+        <div class="col-sm-6 col-md-4 gallery-col" data-aos="fade-up" data-aos-delay="700">
+          <div class="gallery-item height-long" data-category="adventure">
+            <img class="gallery-img" src="https://images.unsplash.com/photo-1509316975850-ff9c5deb0cd9?auto=format&fit=crop&q=80&w=800" alt="Jaisalmer Camel Dunes">
+            <div class="gallery-overlay">
+              <div class="gallery-icon" aria-hidden="true"><i class="fas fa-expand"></i></div>
+              <h3 class="gallery-item-title">Jaisalmer Camel Safari</h3>
+              <span class="gallery-item-cat">Adventure</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Lightbox Viewer Modal -->
+  <div id="lightbox-modal" role="dialog" aria-modal="true" aria-label="Photo Lightbox">
+    <div class="lightbox-content-wrap">
+      <span class="lightbox-close"><i class="fas fa-times" aria-hidden="true"></i></span>
+      <span class="lightbox-nav lightbox-prev"><i class="fas fa-chevron-left" aria-hidden="true"></i></span>
+      <img class="lightbox-img" src="" alt="">
+      <span class="lightbox-nav lightbox-next"><i class="fas fa-chevron-right" aria-hidden="true"></i></span>
+      <div class="lightbox-caption"></div>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="footer-about">
+            <a href="index.html" class="footer-about-logo">
+              <i class="fas fa-dharmachakra text-gold"></i>
+              <span>Incredible India</span>
+            </a>
+            <p class="footer-about-text">
+              Explore Incredible India is a premier luxury travel management firm creating bespoke itineraries, cultural excursions, and high-end journeys across the Indian subcontinent since 2011.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="packages.html">Tour Packages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-title">Top Packages</h3>
+          <ul class="footer-links">
+            <li><a href="package-details.html?package=golden-triangle-tour">Golden Triangle Tour</a></li>
+            <li><a href="package-details.html?package=royal-rajasthan-tour">Royal Rajasthan Tour</a></li>
+            <li><a href="package-details.html?package=kerala-paradise">Kerala Paradise Tour</a></li>
+            <li><a href="package-details.html?package=kashmir-delight">Kashmir Delight Tour</a></li>
+            <li><a href="package-details.html?package=himalayan-adventure">Himalayan Adventure</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h3 class="footer-title">Newsletter</h3>
+          <p class="footer-newsletter-text">Subscribe to receive secret luxury flight deals and curated travel brochures.</p>
+          <form class="newsletter-form">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address" required>
+              <button class="btn btn-newsletter" type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">&copy; 2026 Explore Incredible India. All Rights Reserved. Crafted for Luxury Travel.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="footer-bottom-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Navigation Elements -->
+  <div class="floating-book-btn">
+    <a href="https://wa.me/919876543210" class="float-action-btn btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" id="back-to-top" class="float-action-btn btn-back-to-top" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-quad'
+    });
+  </script>
+</body>
+</html>

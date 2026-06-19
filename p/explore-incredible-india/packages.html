@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Premium combo travel packages across India. Find detailed itineraries, hotels, private transport inclusions, and compare packages.">
+  <title>Tour Packages & Combo Trips | Explore Incredible India</title>
+  
+  <!-- CSS Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="loader-spinner" role="status"></div>
+    <div class="loader-text">TOUR PACKAGES</div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom scrolled" id="main-navbar">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <i class="fas fa-dharmachakra fa-spin text-gold" style="animation-duration: 20s;"></i>
+        <span>Incredible India</span>
+      </a>
+      
+      <button class="navbar-toggler navbar-toggler-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon-custom"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 navbar-collapse-custom">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="destinations.html">Destinations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom active" href="packages.html">Tour Packages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center gap-3">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+            <i class="fas fa-sun"></i>
+          </button>
+          <a href="booking.html" class="btn btn-premium">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <section class="page-banner" style="background-image: url('https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=1920');">
+    <div class="page-banner-content">
+      <div class="container">
+        <span class="page-breadcrumb">Bespoke Vacations</span>
+        <h1 class="page-banner-title">Premium Combo Packages</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Packages List -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-aos="fade-up">Featured Combos & Tours</h2>
+        <p data-aos="fade-up" data-aos-delay="100">All-inclusive experiential packages featuring curated boutique accommodations and private luxury logistics.</p>
+      </div>
+
+      <!-- SEARCH, FILTER & SORT PANEL -->
+      <div class="glass-panel p-4 rounded-3 mb-5" data-aos="fade-up">
+        <div class="row g-3 align-items-center">
+          <!-- Search input -->
+          <div class="col-lg-4 col-md-6">
+            <div class="input-group">
+              <span class="input-group-text bg-transparent text-secondary border-secondary"><i class="fas fa-search"></i></span>
+              <input type="text" id="package-search-input" class="form-control" placeholder="Search by name or cities...">
+            </div>
+          </div>
+          <!-- Sort option -->
+          <div class="col-lg-3 col-md-6">
+            <div class="input-group">
+              <span class="input-group-text bg-transparent text-secondary border-secondary"><i class="fas fa-sort-amount-down"></i></span>
+              <select id="package-sort-select" class="form-select">
+                <option value="featured">Sort by: Featured</option>
+                <option value="price-asc">Price: Low to High</option>
+                <option value="price-desc">Price: High to Low</option>
+                <option value="days-asc">Duration: Short to Long</option>
+                <option value="days-desc">Duration: Long to Short</option>
+              </select>
+            </div>
+          </div>
+          <!-- Filters pills -->
+          <div class="col-lg-5 col-md-12 d-flex flex-wrap gap-2 justify-content-lg-end justify-content-start">
+            <button class="filter-pill active" data-category="all">All Packages</button>
+            <button class="filter-pill" data-category="heritage">Heritage</button>
+            <button class="filter-pill" data-category="nature">Nature</button>
+            <button class="filter-pill" data-category="beaches">Beaches</button>
+            <button class="filter-pill" data-category="mountains">Mountains</button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Packages Grid Container -->
+      <div class="packages-list-container" id="packages-list-wrap">
+        
+        <!-- Package 1: Golden Triangle -->
+        <div class="glass-card package-card mb-5 package-item-card" 
+             data-category="heritage" 
+             data-price="28500" 
+             data-days="6" 
+             data-id="golden-triangle-tour"
+             data-name="Golden Triangle Tour"
+             data-aos="fade-up">
+          <div class="row g-0">
+            <div class="col-lg-5 package-img-col">
+              <img class="package-img" src="https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&q=80&w=800" alt="Golden Triangle Palace">
+              <span class="package-badge bg-gold text-dark">Cultural Heritage</span>
+              <span class="popular-package-badge bg-danger text-white">Best Seller</span>
+            </div>
+            <div class="col-lg-7 package-details-col d-flex flex-column justify-content-between p-4">
+              <div>
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div class="package-meta text-secondary">
+                    <span><i class="far fa-clock me-1"></i> 6 Days / 5 Nights</span>
+                    <span class="ms-3"><i class="fas fa-map-marker-alt me-1"></i> Delhi + Agra + Jaipur</span>
+                  </div>
+                  <div class="star-rating text-warning">
+                    <i class="fas fa-star"></i> 4.9 <small class="text-secondary">(124 reviews)</small>
+                  </div>
+                </div>
+                
+                <h3 class="package-title font-serif text-white fs-4">Golden Triangle Tour</h3>
+                <p class="package-desc text-secondary mt-2">Experience India's historical crown jewels. Tour old Mughal architecture in Delhi, see the sunrise at Taj Mahal in Agra, and walk through grand pink stone palaces in Jaipur.</p>
+                
+                <div class="package-features row g-2 mt-3 text-secondary">
+                  <div class="col-sm-6"><i class="fas fa-hotel text-gold me-2"></i><strong>Hotel:</strong> 4/5 Star Properties</div>
+                  <div class="col-sm-6"><i class="fas fa-car text-gold me-2"></i><strong>Transit:</strong> Private AC Sedan</div>
+                  <div class="col-sm-6"><i class="fas fa-utensils text-gold me-2"></i>Daily Gourmet Breakfast</div>
+                  <div class="col-sm-6"><i class="fas fa-landmark text-gold me-2"></i>VIP Monuments Entry</div>
+                </div>
+              </div>
+              
+              <div class="border-top border-secondary mt-4 pt-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="package-pricing text-start">
+                  <span class="text-secondary d-block" style="font-size: 0.85rem;">Price Per Person</span>
+                  <span class="fs-4 text-gold fw-bold">₹28,500</span>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                  <!-- Comparison checkbox -->
+                  <div class="form-check compare-check-wrap">
+                    <input class="form-check-input package-compare-checkbox" type="checkbox" value="golden-triangle-tour" id="compare-golden-triangle">
+                    <label class="form-check-label text-secondary small" for="compare-golden-triangle">Compare</label>
+                  </div>
+                  <a href="package-details.html?package=golden-triangle-tour" class="btn btn-premium-outline btn-sm">View Trip Details</a>
+                  <a href="booking.html?package=Golden Triangle Tour&destination=Delhi + Agra + Jaipur" class="btn btn-premium btn-sm">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 2: Royal Rajasthan -->
+        <div class="glass-card package-card mb-5 package-item-card" 
+             data-category="heritage" 
+             data-price="42000" 
+             data-days="7" 
+             data-id="royal-rajasthan-tour"
+             data-name="Royal Rajasthan Tour"
+             data-aos="fade-up">
+          <div class="row g-0">
+            <div class="col-lg-5 package-img-col">
+              <img class="package-img" src="https://images.unsplash.com/photo-1603262110263-fb0112e7cc33?auto=format&fit=crop&q=80&w=800" alt="Rajasthan Palace Udaipur">
+              <span class="package-badge bg-gold text-dark">Royal Royalty</span>
+              <span class="popular-package-badge bg-warning text-dark">Limited Seats</span>
+            </div>
+            <div class="col-lg-7 package-details-col d-flex flex-column justify-content-between p-4">
+              <div>
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div class="package-meta text-secondary">
+                    <span><i class="far fa-clock me-1"></i> 7 Days / 6 Nights</span>
+                    <span class="ms-3"><i class="fas fa-map-marker-alt me-1"></i> Jaipur + Jodhpur + Udaipur + Jaisalmer</span>
+                  </div>
+                  <div class="star-rating text-warning">
+                    <i class="fas fa-star"></i> 4.9 <small class="text-secondary">(95 reviews)</small>
+                  </div>
+                </div>
+                
+                <h3 class="package-title font-serif text-white fs-4">Royal Rajasthan Tour</h3>
+                <p class="package-desc text-secondary mt-2">Journey across historic desert kingdoms. Watch Mehrangarh Fort towering above blue houses, sail lakes in Udaipur, and camp on sand dunes in golden Jaisalmer.</p>
+                
+                <div class="package-features row g-2 mt-3 text-secondary">
+                  <div class="col-sm-6"><i class="fas fa-hotel text-gold me-2"></i><strong>Hotel:</strong> Heritage Havelis</div>
+                  <div class="col-sm-6"><i class="fas fa-car text-gold me-2"></i><strong>Transit:</strong> Private Innova SUV</div>
+                  <div class="col-sm-6"><i class="fas fa-campground text-gold me-2"></i>Desert Camping Night</div>
+                  <div class="col-sm-6"><i class="fas fa-camera text-gold me-2"></i>Private Historian Guide</div>
+                </div>
+              </div>
+              
+              <div class="border-top border-secondary mt-4 pt-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="package-pricing text-start">
+                  <span class="text-secondary d-block" style="font-size: 0.85rem;">Price Per Person</span>
+                  <span class="fs-4 text-gold fw-bold">₹42,000</span>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                  <div class="form-check compare-check-wrap">
+                    <input class="form-check-input package-compare-checkbox" type="checkbox" value="royal-rajasthan-tour" id="compare-royal-rajasthan">
+                    <label class="form-check-label text-secondary small" for="compare-royal-rajasthan">Compare</label>
+                  </div>
+                  <a href="package-details.html?package=royal-rajasthan-tour" class="btn btn-premium-outline btn-sm">View Trip Details</a>
+                  <a href="booking.html?package=Royal Rajasthan Tour&destination=Jaipur + Jodhpur + Udaipur + Jaisalmer" class="btn btn-premium btn-sm">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 3: South India Explorer -->
+        <div class="glass-card package-card mb-5 package-item-card" 
+             data-category="heritage" 
+             data-price="39500" 
+             data-days="8" 
+             data-id="south-india-explorer"
+             data-name="South India Explorer"
+             data-aos="fade-up">
+          <div class="row g-0">
+            <div class="col-lg-5 package-img-col">
+              <img class="package-img" src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=800" alt="South India Temple">
+              <span class="package-badge bg-gold text-dark">Heritage & Hills</span>
+              <span class="popular-package-badge bg-primary text-white">Trending</span>
+            </div>
+            <div class="col-lg-7 package-details-col d-flex flex-column justify-content-between p-4">
+              <div>
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div class="package-meta text-secondary">
+                    <span><i class="far fa-clock me-1"></i> 8 Days / 7 Nights</span>
+                    <span class="ms-3"><i class="fas fa-map-marker-alt me-1"></i> Hyd + Chennai + Pondi + Ooty + Mysore</span>
+                  </div>
+                  <div class="star-rating text-warning">
+                    <i class="fas fa-star"></i> 4.8 <small class="text-secondary">(78 reviews)</small>
+                  </div>
+                </div>
+                
+                <h3 class="package-title font-serif text-white fs-4">South India Explorer</h3>
+                <p class="package-desc text-secondary mt-2">Explore the cultural diversity of the South. Tour Nizam palaces, stroll past French pastel streets in Pondicherry, breathe mountain air in Ooty, and view Mysuru's royal palaces.</p>
+                
+                <div class="package-features row g-2 mt-3 text-secondary">
+                  <div class="col-sm-6"><i class="fas fa-hotel text-gold me-2"></i><strong>Hotel:</strong> Premium Resorts</div>
+                  <div class="col-sm-6"><i class="fas fa-car text-gold me-2"></i><strong>Transit:</strong> Chauffeur Innova SUV</div>
+                  <div class="col-sm-6"><i class="fas fa-leaf text-gold me-2"></i>Tea Estate sommelier walk</div>
+                  <div class="col-sm-6"><i class="fas fa-utensils text-gold me-2"></i>Traditional Thali Feasts</div>
+                </div>
+              </div>
+              
+              <div class="border-top border-secondary mt-4 pt-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="package-pricing text-start">
+                  <span class="text-secondary d-block" style="font-size: 0.85rem;">Price Per Person</span>
+                  <span class="fs-4 text-gold fw-bold">₹39,500</span>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                  <div class="form-check compare-check-wrap">
+                    <input class="form-check-input package-compare-checkbox" type="checkbox" value="south-india-explorer" id="compare-south-india">
+                    <label class="form-check-label text-secondary small" for="compare-south-india">Compare</label>
+                  </div>
+                  <a href="package-details.html?package=south-india-explorer" class="btn btn-premium-outline btn-sm">View Trip Details</a>
+                  <a href="booking.html?package=South India Explorer&destination=Hyderabad + Chennai + Pondicherry + Ooty + Mysuru" class="btn btn-premium btn-sm">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 4: Kerala Paradise -->
+        <div class="glass-card package-card mb-5 package-item-card" 
+             data-category="nature" 
+             data-price="34000" 
+             data-days="6" 
+             data-id="kerala-paradise"
+             data-name="Kerala Paradise"
+             data-aos="fade-up">
+          <div class="row g-0">
+            <div class="col-lg-5 package-img-col">
+              <img class="package-img" src="https://images.unsplash.com/photo-1593693411515-c202e974fe08?auto=format&fit=crop&q=80&w=800" alt="Kerala Houseboat Backwaters">
+              <span class="package-badge bg-gold text-dark">Tropical Retreat</span>
+              <span class="popular-package-badge bg-danger text-white">Best Seller</span>
+            </div>
+            <div class="col-lg-7 package-details-col d-flex flex-column justify-content-between p-4">
+              <div>
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div class="package-meta text-secondary">
+                    <span><i class="far fa-clock me-1"></i> 6 Days / 5 Nights</span>
+                    <span class="ms-3"><i class="fas fa-map-marker-alt me-1"></i> Kochi + Munnar + Thekkady + Alleppey</span>
+                  </div>
+                  <div class="star-rating text-warning">
+                    <i class="fas fa-star"></i> 4.9 <small class="text-secondary">(112 reviews)</small>
+                  </div>
+                </div>
+                
+                <h3 class="package-title font-serif text-white fs-4">Kerala Paradise</h3>
+                <p class="package-desc text-secondary mt-2">Immerse yourself in tropical serenity. Cruise along calm palm backwaters on a private wooden houseboat, walk Munnar tea slopes, and spot elephants at Periyar forests in Thekkady.</p>
+                
+                <div class="package-features row g-2 mt-3 text-secondary">
+                  <div class="col-sm-6"><i class="fas fa-hotel text-gold me-2"></i><strong>Hotel:</strong> Premium Resorts & Boat</div>
+                  <div class="col-sm-6"><i class="fas fa-ship text-gold me-2"></i>Private Houseboat Cruise</div>
+                  <div class="col-sm-6"><i class="fas fa-spa text-gold me-2"></i>Ayurvedic Spa Massage</div>
+                  <div class="col-sm-6"><i class="fas fa-leaf text-gold me-2"></i>Spice Garden guided walk</div>
+                </div>
+              </div>
+              
+              <div class="border-top border-secondary mt-4 pt-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="package-pricing text-start">
+                  <span class="text-secondary d-block" style="font-size: 0.85rem;">Price Per Person</span>
+                  <span class="fs-4 text-gold fw-bold">₹34,000</span>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                  <div class="form-check compare-check-wrap">
+                    <input class="form-check-input package-compare-checkbox" type="checkbox" value="kerala-paradise" id="compare-kerala">
+                    <label class="form-check-label text-secondary small" for="compare-kerala">Compare</label>
+                  </div>
+                  <a href="package-details.html?package=kerala-paradise" class="btn btn-premium-outline btn-sm">View Trip Details</a>
+                  <a href="booking.html?package=Kerala Paradise&destination=Kochi + Munnar + Thekkady + Alleppey" class="btn btn-premium btn-sm">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 5: Kashmir Delight -->
+        <div class="glass-card package-card mb-5 package-item-card" 
+             data-category="mountains" 
+             data-price="36999" 
+             data-days="7" 
+             data-id="kashmir-delight"
+             data-name="Kashmir Delight"
+             data-aos="fade-up">
+          <div class="row g-0">
+            <div class="col-lg-5 package-img-col">
+              <img class="package-img" src="https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&q=80&w=800" alt="Kashmir Snow Meadows">
+              <span class="package-badge bg-gold text-dark">Alpine Bliss</span>
+              <span class="popular-package-badge bg-danger text-white">Best Seller</span>
+            </div>
+            <div class="col-lg-7 package-details-col d-flex flex-column justify-content-between p-4">
+              <div>
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div class="package-meta text-secondary">
+                    <span><i class="far fa-clock me-1"></i> 7 Days / 6 Nights</span>
+                    <span class="ms-3"><i class="fas fa-map-marker-alt me-1"></i> Srinagar + Gulmarg + Sonmarg + Pahalgam</span>
+                  </div>
+                  <div class="star-rating text-warning">
+                    <i class="fas fa-star"></i> 4.9 <small class="text-secondary">(142 reviews)</small>
+                  </div>
+                </div>
+                
+                <h3 class="package-title font-serif text-white fs-4">Kashmir Delight</h3>
+                <p class="package-desc text-secondary mt-2">Explore majestic alpine beauty. Relax on carved Dal lake houseboats, ride the high Gulmarg Gondola lift over pine forests, and walk mountain glaciers in Sonmarg.</p>
+                
+                <div class="package-features row g-2 mt-3 text-secondary">
+                  <div class="col-sm-6"><i class="fas fa-hotel text-gold me-2"></i><strong>Hotel:</strong> Premium Houseboat & Resort</div>
+                  <div class="col-sm-6"><i class="fas fa-car text-gold me-2"></i><strong>Transit:</strong> Private SUV 4x4</div>
+                  <div class="col-sm-6"><i class="fas fa-ticket-alt text-gold me-2"></i>Gulmarg Gondola Passes</div>
+                  <div class="col-sm-6"><i class="fas fa-cloud-sun text-gold me-2"></i>Scenic Shikara Ride</div>
+                </div>
+              </div>
+              
+              <div class="border-top border-secondary mt-4 pt-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="package-pricing text-start">
+                  <span class="text-secondary d-block" style="font-size: 0.85rem;">Price Per Person</span>
+                  <span class="fs-4 text-gold fw-bold">₹36,999</span>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                  <div class="form-check compare-check-wrap">
+                    <input class="form-check-input package-compare-checkbox" type="checkbox" value="kashmir-delight" id="compare-kashmir">
+                    <label class="form-check-label text-secondary small" for="compare-kashmir">Compare</label>
+                  </div>
+                  <a href="package-details.html?package=kashmir-delight" class="btn btn-premium-outline btn-sm">View Trip Details</a>
+                  <a href="booking.html?package=Kashmir Delight&destination=Srinagar + Gulmarg + Sonmarg + Pahalgam" class="btn btn-premium btn-sm">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 6: Goa & Mumbai Escape -->
+        <div class="glass-card package-card mb-5 package-item-card" 
+             data-category="beaches" 
+             data-price="31500" 
+             data-days="5" 
+             data-id="goa-mumbai-escape"
+             data-name="Goa & Mumbai Escape"
+             data-aos="fade-up">
+          <div class="row g-0">
+            <div class="col-lg-5 package-img-col">
+              <img class="package-img" src="https://images.unsplash.com/photo-1507525428034-b723cf961d3e?auto=format&fit=crop&q=80&w=800" alt="Goa Sandy Shoreline">
+              <span class="package-badge bg-gold text-dark">Coastal & City</span>
+              <span class="popular-package-badge bg-primary text-white">Trending</span>
+            </div>
+            <div class="col-lg-7 package-details-col d-flex flex-column justify-content-between p-4">
+              <div>
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div class="package-meta text-secondary">
+                    <span><i class="far fa-clock me-1"></i> 5 Days / 4 Nights</span>
+                    <span class="ms-3"><i class="fas fa-map-marker-alt me-1"></i> Mumbai + Goa</span>
+                  </div>
+                  <div class="star-rating text-warning">
+                    <i class="fas fa-star"></i> 4.7 <small class="text-secondary">(64 reviews)</small>
+                  </div>
+                </div>
+                
+                <h3 class="package-title font-serif text-white fs-4">Goa & Mumbai Escape</h3>
+                <p class="package-desc text-secondary mt-2">Blend dynamic city skyline strolls with tropical beach tranquility. Tour colonial landmarks in Mumbai and cruise coastal yacht sunsets along white sands in Goa.</p>
+                
+                <div class="package-features row g-2 mt-3 text-secondary">
+                  <div class="col-sm-6"><i class="fas fa-hotel text-gold me-2"></i><strong>Hotel:</strong> 5-Star Beach Resort</div>
+                  <div class="col-sm-6"><i class="fas fa-plane text-gold me-2"></i><strong>Transit:</strong> Flights + Sedan</div>
+                  <div class="col-sm-6"><i class="fas fa-cocktail text-gold me-2"></i>VIP Sunset Yacht Cruise</div>
+                  <div class="col-sm-6"><i class="fas fa-city text-gold me-2"></i>Mumbai Sightseeing Tour</div>
+                </div>
+              </div>
+              
+              <div class="border-top border-secondary mt-4 pt-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="package-pricing text-start">
+                  <span class="text-secondary d-block" style="font-size: 0.85rem;">Price Per Person</span>
+                  <span class="fs-4 text-gold fw-bold">₹31,500</span>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                  <div class="form-check compare-check-wrap">
+                    <input class="form-check-input package-compare-checkbox" type="checkbox" value="goa-mumbai-escape" id="compare-goa-mumbai">
+                    <label class="form-check-label text-secondary small" for="compare-goa-mumbai">Compare</label>
+                  </div>
+                  <a href="package-details.html?package=goa-mumbai-escape" class="btn btn-premium-outline btn-sm">View Trip Details</a>
+                  <a href="booking.html?package=Goa & Mumbai Escape&destination=Mumbai + Goa" class="btn btn-premium btn-sm">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 7: Himalayan Adventure -->
+        <div class="glass-card package-card mb-5 package-item-card" 
+             data-category="mountains" 
+             data-price="29000" 
+             data-days="6" 
+             data-id="himalayan-adventure"
+             data-name="Himalayan Adventure"
+             data-aos="fade-up">
+          <div class="row g-0">
+            <div class="col-lg-5 package-img-col">
+              <img class="package-img" src="https://images.unsplash.com/photo-1562979314-bee7453e911c?auto=format&fit=crop&q=80&w=800" alt="Himalayas Shimla Town">
+              <span class="package-badge bg-gold text-dark">Mountain Thrills</span>
+              <span class="popular-package-badge bg-primary text-white">Trending</span>
+            </div>
+            <div class="col-lg-7 package-details-col d-flex flex-column justify-content-between p-4">
+              <div>
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div class="package-meta text-secondary">
+                    <span><i class="far fa-clock me-1"></i> 6 Days / 5 Nights</span>
+                    <span class="ms-3"><i class="fas fa-map-marker-alt me-1"></i> Shimla + Manali + Kasol</span>
+                  </div>
+                  <div class="star-rating text-warning">
+                    <i class="fas fa-star"></i> 4.8 <small class="text-secondary">(88 reviews)</small>
+                  </div>
+                </div>
+                
+                <h3 class="package-title font-serif text-white fs-4">Himalayan Adventure</h3>
+                <p class="package-desc text-secondary mt-2">Explore majestic mountain sanctuaries. Experience the pine walks of Shimla, ride paragliders over Solang valley, and trek along scenic forest rivers in Kasol.</p>
+                
+                <div class="package-features row g-2 mt-3 text-secondary">
+                  <div class="col-sm-6"><i class="fas fa-hotel text-gold me-2"></i><strong>Hotel:</strong> Premium Chalets</div>
+                  <div class="col-sm-6"><i class="fas fa-car text-gold me-2"></i><strong>Transit:</strong> Private AC Sedan</div>
+                  <div class="col-sm-6"><i class="fas fa-hiking text-gold me-2"></i>Guided Treks & Gliding</div>
+                  <div class="col-sm-6"><i class="fas fa-fire text-gold me-2"></i>Bonfire Barbecue Night</div>
+                </div>
+              </div>
+              
+              <div class="border-top border-secondary mt-4 pt-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="package-pricing text-start">
+                  <span class="text-secondary d-block" style="font-size: 0.85rem;">Price Per Person</span>
+                  <span class="fs-4 text-gold fw-bold">₹29,000</span>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                  <div class="form-check compare-check-wrap">
+                    <input class="form-check-input package-compare-checkbox" type="checkbox" value="himalayan-adventure" id="compare-himalayan">
+                    <label class="form-check-label text-secondary small" for="compare-himalayan">Compare</label>
+                  </div>
+                  <a href="package-details.html?package=himalayan-adventure" class="btn btn-premium-outline btn-sm">View Trip Details</a>
+                  <a href="booking.html?package=Himalayan Adventure&destination=Shimla + Manali + Kasol" class="btn btn-premium btn-sm">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Package 8: North East Wonders -->
+        <div class="glass-card package-card mb-5 package-item-card" 
+             data-category="nature" 
+             data-price="26500" 
+             data-days="5" 
+             data-id="north-east-wonders"
+             data-name="North East Wonders"
+             data-aos="fade-up">
+          <div class="row g-0">
+            <div class="col-lg-5 package-img-col">
+              <img class="package-img" src="https://images.unsplash.com/photo-1524492412937-b28074a5d7da?auto=format&fit=crop&q=80&w=800" alt="Darjeeling Hills">
+              <span class="package-badge bg-gold text-dark">Scenic Eastern Hills</span>
+              <span class="popular-package-badge bg-warning text-dark">Limited Seats</span>
+            </div>
+            <div class="col-lg-7 package-details-col d-flex flex-column justify-content-between p-4">
+              <div>
+                <div class="d-flex justify-content-between align-items-start mb-2">
+                  <div class="package-meta text-secondary">
+                    <span><i class="far fa-clock me-1"></i> 5 Days / 4 Nights</span>
+                    <span class="ms-3"><i class="fas fa-map-marker-alt me-1"></i> Gangtok + Darjeeling</span>
+                  </div>
+                  <div class="star-rating text-warning">
+                    <i class="fas fa-star"></i> 4.8 <small class="text-secondary">(72 reviews)</small>
+                  </div>
+                </div>
+                
+                <h3 class="package-title font-serif text-white fs-4">North East Wonders</h3>
+                <p class="package-desc text-secondary mt-2">Behold spectacular views of Kangchenjunga at sunrise in Darjeeling. Visit Buddhist monasteries, ride local cable cars, and explore green organic valleys in Gangtok.</p>
+                
+                <div class="package-features row g-2 mt-3 text-secondary">
+                  <div class="col-sm-6"><i class="fas fa-hotel text-gold me-2"></i><strong>Hotel:</strong> Boutique Mountain Lodges</div>
+                  <div class="col-sm-6"><i class="fas fa-car text-gold me-2"></i><strong>Transit:</strong> Private Luxury SUV</div>
+                  <div class="col-sm-6"><i class="fas fa-train text-gold me-2"></i>Darjeeling Railway Ride</div>
+                  <div class="col-sm-6"><i class="fas fa-leaf text-gold me-2"></i>Organic plantation walk</div>
+                </div>
+              </div>
+              
+              <div class="border-top border-secondary mt-4 pt-3 d-flex justify-content-between align-items-center flex-wrap gap-3">
+                <div class="package-pricing text-start">
+                  <span class="text-secondary d-block" style="font-size: 0.85rem;">Price Per Person</span>
+                  <span class="fs-4 text-gold fw-bold">₹26,500</span>
+                </div>
+                
+                <div class="d-flex align-items-center gap-3">
+                  <div class="form-check compare-check-wrap">
+                    <input class="form-check-input package-compare-checkbox" type="checkbox" value="north-east-wonders" id="compare-north-east">
+                    <label class="form-check-label text-secondary small" for="compare-north-east">Compare</label>
+                  </div>
+                  <a href="package-details.html?package=north-east-wonders" class="btn btn-premium-outline btn-sm">View Trip Details</a>
+                  <a href="booking.html?package=North East Wonders&destination=Gangtok + Darjeeling" class="btn btn-premium btn-sm">Book Now</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Package Comparison Sticky Bar (Drawer) -->
+  <div id="compare-drawer" class="compare-drawer glass-panel" role="region" aria-label="Package Comparison Drawer">
+    <div class="container d-flex justify-content-between align-items-center py-3 flex-wrap gap-2">
+      <div class="d-flex align-items-center gap-3">
+        <span class="text-gold fw-bold"><i class="fas fa-scale-balanced me-2"></i>Package Compare Pool</span>
+        <div id="compare-items-list" class="d-flex gap-2 align-items-center flex-wrap">
+          <!-- Selected packages chips go here -->
+        </div>
+      </div>
+      <div class="d-flex gap-3">
+        <button id="clear-compare-btn" class="btn btn-premium-outline btn-sm">Clear All</button>
+        <button id="trigger-compare-btn" class="btn btn-premium btn-sm" disabled>Compare Now</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Package Comparison Modal (Full spec comparison) -->
+  <div id="compare-modal" class="success-modal" role="dialog" aria-modal="true" aria-labelledby="compare-modal-title">
+    <div class="success-modal-card compare-modal-card">
+      <div class="d-flex justify-content-between align-items-center border-bottom border-secondary pb-3 mb-4">
+        <h3 id="compare-modal-title" class="font-serif text-gold mb-0"><i class="fas fa-scale-balanced me-2"></i>Package Specifications Comparison</h3>
+        <button type="button" id="close-compare-modal-x" class="btn bg-transparent border-0 text-white fs-4"><i class="fas fa-times"></i></button>
+      </div>
+      
+      <div class="table-responsive">
+        <table class="table table-bordered text-white align-middle" id="compare-results-table">
+          <thead>
+            <tr id="compare-head-row">
+              <th class="spec-label-col">Package Details</th>
+              <!-- Dynamic package headers -->
+            </tr>
+          </thead>
+          <tbody>
+            <tr id="compare-row-price">
+              <td class="spec-label-col text-gold fw-bold">Price per person</td>
+              <!-- Dynamic -->
+            </tr>
+            <tr id="compare-row-duration">
+              <td class="spec-label-col text-gold fw-bold">Duration</td>
+              <!-- Dynamic -->
+            </tr>
+            <tr id="compare-row-cities">
+              <td class="spec-label-col text-gold fw-bold">Cities Covered</td>
+              <!-- Dynamic -->
+            </tr>
+            <tr id="compare-row-hotel">
+              <td class="spec-label-col text-gold fw-bold">Accommodations</td>
+              <!-- Dynamic -->
+            </tr>
+            <tr id="compare-row-transport">
+              <td class="spec-label-col text-gold fw-bold">Transit Logistics</td>
+              <!-- Dynamic -->
+            </tr>
+            <tr id="compare-row-meals">
+              <td class="spec-label-col text-gold fw-bold">Included Meals</td>
+              <!-- Dynamic -->
+            </tr>
+            <tr id="compare-row-rating">
+              <td class="spec-label-col text-gold fw-bold">Customer Rating</td>
+              <!-- Dynamic -->
+            </tr>
+            <tr id="compare-row-action">
+              <td class="spec-label-col text-gold fw-bold">Action</td>
+              <!-- Dynamic -->
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="text-end mt-4">
+        <button type="button" id="close-compare-modal-btn" class="btn btn-premium-outline">Close Window</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Package Comparison Section -->
+  <section class="section-padding bg-tertiary-custom" style="background-color: var(--bg-secondary);">
+    <div class="container">
+      <div class="section-title">
+        <h2 data-aos="fade-up">Compare Package Tiers</h2>
+        <p data-aos="fade-up" data-aos-delay="100">Find the perfect blend of budget, luxury properties, and transit options matching your vacation aspirations.</p>
+      </div>
+
+      <div class="comparison-table-wrap glass-panel" data-aos="fade-up">
+        <table class="comparison-table text-white">
+          <thead>
+            <tr>
+              <th class="feature-col">Service Detail</th>
+              <th>Deluxe Tier</th>
+              <th>Premium Tier</th>
+              <th class="tier-gold">Royal Luxury Tier</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td class="feature-col">Accommodations</td>
+              <td>3-Star Deluxe Hotels</td>
+              <td>4-Star Premium Resorts</td>
+              <td class="text-gold">5-Star Heritage Palaces</td>
+            </tr>
+            <tr>
+              <td class="feature-col">Logistics / Transit</td>
+              <td>Standard AC Sedan</td>
+              <td>Premium AC SUV (Innova)</td>
+              <td class="text-gold">Mercedes Benz / VIP SUV</td>
+            </tr>
+            <tr>
+              <td class="feature-col">Meal Plan</td>
+              <td>Daily Breakfast Only</td>
+              <td>Breakfast + Dinner</td>
+              <td class="text-gold">All Meals (All-inclusive Buffet)</td>
+            </tr>
+            <tr>
+              <td class="feature-col">Tour Escort / Guide</td>
+              <td>Local Site Guides</td>
+              <td>Dedicated Regional Guide</td>
+              <td class="text-gold">Private Scholar / Historian Guide</td>
+            </tr>
+            <tr>
+              <td class="feature-col">VIP Fast-Track Entries</td>
+              <td><i class="fas fa-times cross-icon" aria-hidden="true"></i> No</td>
+              <td><i class="fas fa-check check-icon" aria-hidden="true"></i> Yes</td>
+              <td class="text-gold"><i class="fas fa-check check-icon" aria-hidden="true"></i> Priority Fast-track Access</td>
+            </tr>
+            <tr>
+              <td class="feature-col">Complimentary Spa</td>
+              <td><i class="fas fa-times cross-icon" aria-hidden="true"></i> No</td>
+              <td><i class="fas fa-times cross-icon" aria-hidden="true"></i> No</td>
+              <td class="text-gold"><i class="fas fa-check check-icon" aria-hidden="true"></i> Yes (1 Ayurvedic Therapy)</td>
+            </tr>
+            <tr>
+              <td class="feature-col">Pricing Index</td>
+              <td>Base Packages</td>
+              <td>Base + 25% Premium Upgrade</td>
+              <td class="text-gold">Base + 55% Royal Upgrade</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="footer-about">
+            <a href="index.html" class="footer-about-logo">
+              <i class="fas fa-dharmachakra text-gold"></i>
+              <span>Incredible India</span>
+            </a>
+            <p class="footer-about-text">
+              Explore Incredible India is a premier luxury travel management firm creating bespoke itineraries, cultural excursions, and high-end journeys across the Indian subcontinent since 2011.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="packages.html">Tour Packages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-title">Top Packages</h3>
+          <ul class="footer-links">
+            <li><a href="package-details.html?package=golden-triangle-tour">Golden Triangle Tour</a></li>
+            <li><a href="package-details.html?package=royal-rajasthan-tour">Royal Rajasthan Tour</a></li>
+            <li><a href="package-details.html?package=kerala-paradise">Kerala Paradise Tour</a></li>
+            <li><a href="package-details.html?package=kashmir-delight">Kashmir Delight Tour</a></li>
+            <li><a href="package-details.html?package=himalayan-adventure">Himalayan Adventure</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h3 class="footer-title">Newsletter</h3>
+          <p class="footer-newsletter-text">Subscribe to receive secret luxury flight deals and curated travel brochures.</p>
+          <form class="newsletter-form">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address" required>
+              <button class="btn btn-newsletter" type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">&copy; 2026 Explore Incredible India. All Rights Reserved. Crafted for Luxury Travel.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="footer-bottom-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Navigation Elements -->
+  <div class="floating-book-btn">
+    <a href="https://wa.me/919876543210" class="float-action-btn btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" id="back-to-top" class="float-action-btn btn-back-to-top" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="js/packages-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-quad'
+    });
+  </script>
+</body>
+</html>

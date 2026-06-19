@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin Dashboard | Explore Incredible India</title>
+  
+  <!-- CSS Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+  
+  <style>
+    /* Admin specific styling overrides */
+    .passcode-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(11, 15, 25, 0.95);
+      backdrop-filter: blur(25px);
+      -webkit-backdrop-filter: blur(25px);
+      z-index: 10003;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      transition: opacity 0.5s ease, visibility 0.5s ease;
+    }
+    .passcode-overlay.hide {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+    .passcode-card {
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      border: 1px solid var(--accent-gold);
+    }
+    .admin-container {
+      display: none;
+    }
+    .admin-container.show {
+      display: block;
+    }
+    .admin-stat-card {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius-md);
+      padding: 25px;
+      box-shadow: var(--card-shadow);
+    }
+    .admin-table-wrap {
+      background: var(--glass-bg);
+      border: 1px solid var(--glass-border);
+      border-radius: var(--border-radius-md);
+      padding: 25px;
+      box-shadow: var(--card-shadow);
+      margin-top: 30px;
+    }
+    .table-admin {
+      color: var(--text-primary);
+      border-color: var(--glass-border);
+      font-size: 0.95rem;
+    }
+    .table-admin th {
+      background-color: var(--bg-secondary) !important;
+      border-bottom: 2px solid var(--glass-border) !important;
+      color: var(--accent-gold);
+      padding: 15px 10px;
+    }
+    .table-admin td {
+      padding: 12px 10px;
+      border-color: var(--glass-border);
+      background-color: transparent !important;
+    }
+    .status-select {
+      background: var(--bg-tertiary);
+      color: var(--text-primary);
+      border: 1px solid var(--glass-border);
+      padding: 4px 10px;
+      border-radius: 4px;
+      font-size: 0.85rem;
+      cursor: pointer;
+    }
+    .status-select:focus {
+      outline: none;
+      border-color: var(--accent-gold);
+    }
+    .status-select.pending { color: #f59e0b; border-color: rgba(245, 158, 11, 0.4); }
+    .status-select.confirmed { color: #10b981; border-color: rgba(16, 185, 129, 0.4); }
+    .status-select.cancelled { color: #ef4444; border-color: rgba(239, 68, 68, 0.4); }
+  </style>
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="loader-spinner" role="status"></div>
+    <div class="loader-text">ADMIN PANEL</div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom scrolled" id="main-navbar">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <i class="fas fa-dharmachakra fa-spin text-gold" style="animation-duration: 20s;"></i>
+        <span>Incredible India Admin</span>
+      </a>
+      <div class="d-flex align-items-center gap-3">
+        <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+          <i class="fas fa-sun"></i>
+        </button>
+        <a href="packages.html" class="btn btn-premium-outline">Package List</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Passcode Authentication Overlay -->
+  <div class="passcode-overlay" id="passcode-overlay-panel">
+    <div class="glass-card passcode-card p-5">
+      <div class="success-modal-icon mb-4" style="background: rgba(251, 191, 36, 0.1); color: var(--accent-gold);">
+        <i class="fas fa-user-shield"></i>
+      </div>
+      <h3 class="font-serif text-white mb-2">Security Verification</h3>
+      <p class="text-secondary small mb-4">Access restricted to authorized corporate personnel. Enter PIN code below:</p>
+      
+      <form id="passcode-form">
+        <div class="mb-3">
+          <input type="password" id="admin-pin-input" class="form-control text-center fs-3 tracking-widest border-secondary bg-transparent text-white" placeholder="••••" maxlength="6" required autofocus>
+          <div class="text-danger small mt-2" id="pin-error-msg" style="display: none;">Invalid PIN! Access Denied.</div>
+        </div>
+        <button type="submit" class="btn btn-premium w-100 py-2">Grant Access</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Dashboard Container -->
+  <div class="admin-container container py-5 mt-5" id="dashboard-wrapper">
+    <div class="d-flex justify-content-between align-items-center mb-4 flex-wrap gap-2">
+      <div>
+        <span class="text-gold fw-bold text-uppercase tracking-wider">Corporate Hub</span>
+        <h1 class="font-serif text-white display-5 my-1">Travel Reservations Registry</h1>
+      </div>
+      <div class="d-flex gap-2">
+        <button id="export-csv-btn" class="btn btn-premium btn-sm"><i class="fas fa-file-csv me-2"></i>Export to CSV</button>
+        <button id="clear-database-btn" class="btn btn-premium-outline btn-sm text-danger border-danger"><i class="fas fa-trash-alt me-2"></i>Clear Database</button>
+      </div>
+    </div>
+
+    <!-- Statistics Cards -->
+    <div class="row g-4 mb-5">
+      <!-- Total Bookings -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="admin-stat-card d-flex align-items-center justify-content-between">
+          <div>
+            <span class="text-secondary small text-uppercase">Total Bookings</span>
+            <h3 class="font-sans text-white fw-bold mb-0 mt-1" id="stat-total-bookings">0</h3>
+          </div>
+          <div class="fs-1 text-gold"><i class="fas fa-file-invoice"></i></div>
+        </div>
+      </div>
+      <!-- Total Travelers -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="admin-stat-card d-flex align-items-center justify-content-between">
+          <div>
+            <span class="text-secondary small text-uppercase">Total Travelers</span>
+            <h3 class="font-sans text-white fw-bold mb-0 mt-1" id="stat-total-travelers">0</h3>
+          </div>
+          <div class="fs-1 text-gold"><i class="fas fa-users"></i></div>
+        </div>
+      </div>
+      <!-- Estimated Revenue -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="admin-stat-card d-flex align-items-center justify-content-between">
+          <div>
+            <span class="text-secondary small text-uppercase">Est. Booking Val</span>
+            <h3 class="font-sans text-white fw-bold mb-0 mt-1" id="stat-total-value">₹0</h3>
+          </div>
+          <div class="fs-1 text-gold"><i class="fas fa-wallet"></i></div>
+        </div>
+      </div>
+      <!-- Pending Actions -->
+      <div class="col-sm-6 col-lg-3">
+        <div class="admin-stat-card d-flex align-items-center justify-content-between">
+          <div>
+            <span class="text-secondary small text-uppercase">Pending Actions</span>
+            <h3 class="font-sans text-white fw-bold mb-0 mt-1" id="stat-pending-actions">0</h3>
+          </div>
+          <div class="fs-1 text-gold"><i class="fas fa-spinner fa-spin-pulse"></i></div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Booking Datatable Panel -->
+    <div class="admin-table-wrap">
+      
+      <!-- Search & Filters Row -->
+      <div class="row g-3 align-items-center mb-4">
+        <!-- Search bar -->
+        <div class="col-md-6 col-lg-4">
+          <div class="input-group">
+            <span class="input-group-text bg-transparent text-secondary border-secondary"><i class="fas fa-search"></i></span>
+            <input type="text" id="admin-search-input" class="form-control" placeholder="Search by name, reference ID...">
+          </div>
+        </div>
+        <!-- Status Filter -->
+        <div class="col-md-3 col-lg-3">
+          <select id="admin-status-filter" class="form-select">
+            <option value="all">Filter Status: All</option>
+            <option value="Pending">Pending</option>
+            <option value="Confirmed">Confirmed</option>
+            <option value="Cancelled">Cancelled</option>
+          </select>
+        </div>
+        <!-- Destination Filter -->
+        <div class="col-md-3 col-lg-3">
+          <select id="admin-dest-filter" class="form-select">
+            <option value="all">Filter Region: All</option>
+            <!-- Dynamic populated destinations -->
+          </select>
+        </div>
+      </div>
+
+      <!-- Table responsive -->
+      <div class="table-responsive">
+        <table class="table table-admin text-white align-middle" id="bookings-table">
+          <thead>
+            <tr>
+              <th>ID Ref</th>
+              <th>Traveler & Contacts</th>
+              <th>Package Selected</th>
+              <th>Date</th>
+              <th>Travelers</th>
+              <th>Budget Tier</th>
+              <th>Action / Status</th>
+              <th>Delete</th>
+            </tr>
+          </thead>
+          <tbody id="bookings-table-body">
+            <!-- Dynamic data goes here -->
+          </tbody>
+        </table>
+      </div>
+      
+      <!-- Empty state placeholder -->
+      <div id="admin-empty-state" class="text-center py-5" style="display: none;">
+        <i class="fas fa-folder-open text-secondary fs-1 mb-3"></i>
+        <h4 class="text-white font-serif">No Reservations Recorded</h4>
+        <p class="text-secondary small">Submitted guest bookings will appear in this datatable dashboard.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer-section mt-5">
+    <div class="container text-center">
+      <p class="mb-0">&copy; 2026 Explore Incredible India. Admin Corporate Registry Dashboard. Confidential Data Portal.</p>
+    </div>
+  </footer>
+
+  <!-- Floating Navigation Elements -->
+  <div class="floating-book-btn">
+    <a href="#" id="back-to-top" class="float-action-btn btn-back-to-top" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Hide preloader
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.style.opacity = '0';
+          setTimeout(() => { preloader.style.display = 'none'; }, 500);
+        }, 500);
+      }
+
+      // Back to top
+      const backToTopBtn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+          backToTopBtn.classList.add('show');
+        } else {
+          backToTopBtn.classList.remove('show');
+        }
+      });
+      backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Passcode Auth logic
+      const passcodeForm = document.getElementById('passcode-form');
+      const pinInput = document.getElementById('admin-pin-input');
+      const overlayPanel = document.getElementById('passcode-overlay-panel');
+      const dashboardWrap = document.getElementById('dashboard-wrapper');
+      const pinError = document.getElementById('pin-error-msg');
+
+      passcodeForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        const pin = pinInput.value.trim();
+        
+        if (pin === '1234') {
+          // Success
+          overlayPanel.classList.add('hide');
+          dashboardWrap.classList.add('show');
+          loadAdminDashboard();
+        } else {
+          // Deny
+          pinError.style.display = 'block';
+          pinInput.value = '';
+          pinInput.focus();
+        }
+      });
+
+      // Dashboard logic
+      const searchInput = document.getElementById('admin-search-input');
+      const statusFilter = document.getElementById('admin-status-filter');
+      const destFilter = document.getElementById('admin-dest-filter');
+      const bookingsTableBody = document.getElementById('bookings-table-body');
+      const emptyState = document.getElementById('admin-empty-state');
+      
+      let allBookings = [];
+
+      function loadAdminDashboard() {
+        const dataStr = localStorage.getItem('incredible_india_bookings') || '[]';
+        allBookings = JSON.parse(dataStr);
+        
+        // Dynamic load regions filter options
+        const destinationsSet = new Set(allBookings.map(b => b.destination));
+        destFilter.innerHTML = '<option value="all">Filter Region: All</option>' +
+          Array.from(destinationsSet).map(dest => `<option value="${dest}">${dest}</option>`).join('');
+          
+        renderDashboardData();
+      }
+
+      function renderDashboardData() {
+        const query = searchInput.value.toLowerCase().trim();
+        const statusVal = statusFilter.value;
+        const destVal = destFilter.value;
+
+        // Filters matching
+        const filtered = allBookings.filter(b => {
+          const matchQuery = b.id.toLowerCase().includes(query) || 
+                             b.name.toLowerCase().includes(query) || 
+                             b.email.toLowerCase().includes(query) || 
+                             b.phone.includes(query) ||
+                             b.package.toLowerCase().includes(query);
+                             
+          const matchStatus = statusVal === 'all' || b.status === statusVal;
+          const matchDest = destVal === 'all' || b.destination === destVal;
+          
+          return matchQuery && matchStatus && matchDest;
+        });
+
+        // Update stats
+        document.getElementById('stat-total-bookings').innerText = allBookings.length;
+        
+        const totalTravelers = allBookings.reduce((sum, b) => sum + parseInt(b.travelers, 10), 0);
+        document.getElementById('stat-total-travelers').innerText = totalTravelers;
+        
+        const pendingCount = allBookings.filter(b => b.status === 'Pending').length;
+        document.getElementById('stat-pending-actions').innerText = pendingCount;
+        
+        // Estimated Revenue based on budget tier and traveler count
+        let revenue = 0;
+        allBookings.forEach(b => {
+          let multiplier = 35000;
+          if (b.budget.includes('Premium')) multiplier = 55000;
+          if (b.budget.includes('Royal')) multiplier = 85000;
+          revenue += (multiplier * parseInt(b.travelers, 10));
+        });
+        document.getElementById('stat-total-value').innerText = '₹' + revenue.toLocaleString();
+
+        // Render rows
+        bookingsTableBody.innerHTML = '';
+        
+        if (filtered.length === 0) {
+          emptyState.style.display = 'block';
+          document.getElementById('bookings-table').style.display = 'none';
+        } else {
+          emptyState.style.display = 'none';
+          document.getElementById('bookings-table').style.display = 'table';
+          
+          filtered.forEach(b => {
+            const tr = document.createElement('tr');
+            
+            // Add status color class
+            let colorClass = 'pending';
+            if (b.status === 'Confirmed') colorClass = 'confirmed';
+            if (b.status === 'Cancelled') colorClass = 'cancelled';
+            
+            tr.innerHTML = `
+              <td class="fw-bold text-gold small">${b.id}</td>
+              <td>
+                <div class="fw-semibold text-white">${b.name}</div>
+                <small class="text-secondary d-block">${b.phone}</small>
+                <small class="text-secondary d-block" style="font-size:0.75rem">${b.email}</small>
+              </td>
+              <td>
+                <div class="fw-bold text-white">${b.package}</div>
+                <small class="text-secondary d-block">${b.destination}</small>
+              </td>
+              <td class="small">${b.date}</td>
+              <td class="text-center fw-bold">${b.travelers}</td>
+              <td class="small text-secondary">${b.budget}</td>
+              <td>
+                <select class="status-select ${colorClass}" data-id="${b.id}">
+                  <option value="Pending" ${b.status === 'Pending' ? 'selected' : ''}>Pending</option>
+                  <option value="Confirmed" ${b.status === 'Confirmed' ? 'selected' : ''}>Confirmed</option>
+                  <option value="Cancelled" ${b.status === 'Cancelled' ? 'selected' : ''}>Cancelled</option>
+                </select>
+              </td>
+              <td class="text-center">
+                <button class="btn btn-sm btn-outline-danger delete-btn border-0" data-id="${b.id}" aria-label="Delete"><i class="fas fa-trash-alt"></i></button>
+              </td>
+            `;
+            bookingsTableBody.appendChild(tr);
+          });
+        }
+      }
+
+      // Attach table actions
+      bookingsTableBody.addEventListener('change', (e) => {
+        const select = e.target.closest('.status-select');
+        if (!select) return;
+        
+        const id = select.getAttribute('data-id');
+        const newStatus = select.value;
+        
+        // Update in data array
+        allBookings = allBookings.map(b => {
+          if (b.id === id) {
+            b.status = newStatus;
+          }
+          return b;
+        });
+        
+        // Save
+        localStorage.setItem('incredible_india_bookings', JSON.stringify(allBookings));
+        
+        // Reset classes
+        select.className = 'status-select';
+        if (newStatus === 'Pending') select.classList.add('pending');
+        if (newStatus === 'Confirmed') select.classList.add('confirmed');
+        if (newStatus === 'Cancelled') select.classList.add('cancelled');
+        
+        // Refresh counts
+        const pendingCount = allBookings.filter(b => b.status === 'Pending').length;
+        document.getElementById('stat-pending-actions').innerText = pendingCount;
+      });
+
+      bookingsTableBody.addEventListener('click', (e) => {
+        const btn = e.target.closest('.delete-btn');
+        if (!btn) return;
+        
+        const id = btn.getAttribute('data-id');
+        if (confirm(`Are you sure you want to delete reservation ${id}?`)) {
+          allBookings = allBookings.filter(b => b.id !== id);
+          localStorage.setItem('incredible_india_bookings', JSON.stringify(allBookings));
+          renderDashboardData();
+        }
+      });
+
+      // Filter events
+      searchInput.addEventListener('input', renderDashboardData);
+      statusFilter.addEventListener('change', renderDashboardData);
+      destFilter.addEventListener('change', renderDashboardData);
+
+      // Export CSV
+      document.getElementById('export-csv-btn').addEventListener('click', () => {
+        if (allBookings.length === 0) {
+          alert('No bookings data available to export.');
+          return;
+        }
+        
+        let csvContent = 'data:text/csv;charset=utf-8,';
+        csvContent += 'Booking Ref,Customer Name,Phone,Email,Destination,Package,Travel Date,Travelers,Budget,Status,Requirements,Timestamp\n';
+        
+        allBookings.forEach(b => {
+          // Clean requirements field of commas/newlines
+          const cleanedReqs = b.requirements ? b.requirements.replace(/[\n\r,]+/g, ' ') : '';
+          const row = [
+            b.id,
+            `"${b.name}"`,
+            b.phone,
+            b.email,
+            `"${b.destination}"`,
+            `"${b.package}"`,
+            b.date,
+            b.travelers,
+            `"${b.budget}"`,
+            b.status,
+            `"${cleanedReqs}"`,
+            b.timestamp
+          ].join(',');
+          csvContent += row + '\n';
+        });
+        
+        const encodedUri = encodeURI(csvContent);
+        const link = document.createElement('a');
+        link.setAttribute('href', encodedUri);
+        link.setAttribute('download', `incredible_india_bookings_${new Date().toISOString().split('T')[0]}.csv`);
+        document.body.appendChild(link);
+        link.click();
+        document.body.removeChild(link);
+      });
+
+      // Clear all
+      document.getElementById('clear-database-btn').addEventListener('click', () => {
+        if (confirm('CAUTION: Are you sure you want to delete ALL bookings from the database? This action is irreversible.')) {
+          allBookings = [];
+          localStorage.setItem('incredible_india_bookings', '[]');
+          renderDashboardData();
+        }
+      });
+    });
+  </script>
+</body>
+</html>

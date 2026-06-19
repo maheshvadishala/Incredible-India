@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Secure your luxury travel reservation with Explore Incredible India. Customize your tour package and book directly via WhatsApp.">
+  <title>Bespoke Tour Reservation | Explore Incredible India</title>
+  
+  <!-- CSS Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="loader-spinner" role="status"></div>
+    <div class="loader-text">SECURE RESERVATIONS</div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom scrolled" id="main-navbar">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <i class="fas fa-dharmachakra fa-spin text-gold" style="animation-duration: 20s;"></i>
+        <span>Incredible India</span>
+      </a>
+      
+      <button class="navbar-toggler navbar-toggler-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon-custom"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 navbar-collapse-custom">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="destinations.html">Destinations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="packages.html">Tour Packages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center gap-3">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+            <i class="fas fa-sun"></i>
+          </button>
+          <a href="booking.html" class="btn btn-premium active">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <section class="page-banner" style="background-image: url('https://images.unsplash.com/photo-1544735716-392fe2489ffa?auto=format&fit=crop&q=80&w=1920');">
+    <div class="page-banner-content">
+      <div class="container">
+        <span class="page-breadcrumb">Bespoke Reservation Portal</span>
+        <h1 class="page-banner-title">Book Your Journey</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Booking Steps Container -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up">
+          
+          <!-- Booking Progress Bar -->
+          <div class="booking-steps-indicator mb-4 d-flex justify-content-between">
+            <div class="step-indicator active" id="step-indicator-1">
+              <span class="step-number">1</span>
+              <span class="step-label">Reservation Details</span>
+            </div>
+            <div class="step-line"></div>
+            <div class="step-indicator" id="step-indicator-2">
+              <span class="step-number">2</span>
+              <span class="step-label">Review Summary</span>
+            </div>
+          </div>
+
+          <!-- Form Panel -->
+          <div class="glass-card p-5">
+            
+            <!-- STEP 1: Form Inputs -->
+            <div id="booking-step-1">
+              <h3 class="font-serif text-gold mb-4"><i class="fas fa-edit me-2"></i>Travel Request Specifications</h3>
+              
+              <form id="tour-booking-form" novalidate>
+                <div class="row g-3">
+                  
+                  <!-- Customer Name -->
+                  <div class="col-md-12">
+                    <label for="book-name" class="form-label text-white fw-bold">Lead Traveler Name *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent text-secondary border-secondary"><i class="fas fa-user"></i></span>
+                      <input type="text" id="book-name" class="form-control" placeholder="e.g. Rajesh Kumar" required>
+                    </div>
+                    <div class="invalid-feedback" id="val-name-err">Please enter traveler name.</div>
+                  </div>
+
+                  <!-- Mobile Number -->
+                  <div class="col-md-6">
+                    <label for="book-phone" class="form-label text-white fw-bold">Mobile Number *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent text-secondary border-secondary"><i class="fas fa-phone-alt"></i></span>
+                      <input type="tel" id="book-phone" class="form-control" placeholder="e.g. 9876543210" required>
+                    </div>
+                    <div class="invalid-feedback" id="val-phone-err">Please enter a valid 10-digit mobile number.</div>
+                  </div>
+
+                  <!-- Email Address -->
+                  <div class="col-md-6">
+                    <label for="book-email" class="form-label text-white fw-bold">Email Address *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent text-secondary border-secondary"><i class="fas fa-envelope"></i></span>
+                      <input type="email" id="book-email" class="form-control" placeholder="e.g. rajesh@domain.com" required>
+                    </div>
+                    <div class="invalid-feedback" id="val-email-err">Please enter a valid email address.</div>
+                  </div>
+
+                  <!-- Destination Selection -->
+                  <div class="col-md-6">
+                    <label for="book-destination" class="form-label text-white fw-bold">Destination Region *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent text-secondary border-secondary"><i class="fas fa-map-marker-alt"></i></span>
+                      <select id="book-destination" class="form-select" required>
+                        <option value="" disabled selected>Select region...</option>
+                        <option value="Delhi + Agra + Jaipur">Golden Triangle (Delhi-Agra-Jaipur)</option>
+                        <option value="Jaipur + Jodhpur + Udaipur + Jaisalmer">Royal Rajasthan</option>
+                        <option value="Hyderabad + Chennai + Pondicherry + Ooty + Mysuru">South India Explorer</option>
+                        <option value="Kochi + Munnar + Thekkady + Alleppey">Kerala Paradise</option>
+                        <option value="Srinagar + Gulmarg + Sonmarg + Pahalgam">Kashmir Alpine Valley</option>
+                        <option value="Mumbai + Goa">Goa & Mumbai Escape</option>
+                        <option value="Shimla + Manali + Kasol">Himalayan Adventure</option>
+                        <option value="Gangtok + Darjeeling">North East Wonders</option>
+                        <option value="Other">Other Region / Custom Route</option>
+                      </select>
+                    </div>
+                    <div class="invalid-feedback">Please select a destination.</div>
+                  </div>
+
+                  <!-- Package Selection -->
+                  <div class="col-md-6">
+                    <label for="book-package" class="form-label text-white fw-bold">Specific Tour Package *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent text-secondary border-secondary"><i class="fas fa-cube"></i></span>
+                      <select id="book-package" class="form-select" required>
+                        <option value="" disabled selected>Select package...</option>
+                        <option value="Golden Triangle Tour">Golden Triangle Tour</option>
+                        <option value="Royal Rajasthan Tour">Royal Rajasthan Tour</option>
+                        <option value="South India Explorer">South India Explorer</option>
+                        <option value="Kerala Paradise">Kerala Paradise</option>
+                        <option value="Kashmir Delight">Kashmir Delight</option>
+                        <option value="Goa & Mumbai Escape">Goa & Mumbai Escape</option>
+                        <option value="Himalayan Adventure">Himalayan Adventure</option>
+                        <option value="North East Wonders">North East Wonders</option>
+                        <option value="Custom Itinerary">Custom Tailor-made Plan</option>
+                      </select>
+                    </div>
+                    <div class="invalid-feedback">Please select a package.</div>
+                  </div>
+
+                  <!-- Date of Travel -->
+                  <div class="col-md-6">
+                    <label for="book-date" class="form-label text-white fw-bold">Approx. Date of Travel *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent text-secondary border-secondary"><i class="fas fa-calendar-alt"></i></span>
+                      <input type="date" id="book-date" class="form-control" required>
+                    </div>
+                    <div class="invalid-feedback">Please select a future travel date.</div>
+                  </div>
+
+                  <!-- Number of Travelers -->
+                  <div class="col-md-6">
+                    <label for="book-travelers" class="form-label text-white fw-bold">Number of Travelers *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent text-secondary border-secondary"><i class="fas fa-users"></i></span>
+                      <input type="number" id="book-travelers" class="form-control" min="1" max="50" placeholder="e.g. 2" required>
+                    </div>
+                    <div class="invalid-feedback">Please enter between 1 and 50 travelers.</div>
+                  </div>
+
+                  <!-- Budget Selection -->
+                  <div class="col-md-12">
+                    <label for="book-budget" class="form-label text-white fw-bold">Accommodations Budget Tier *</label>
+                    <div class="input-group">
+                      <span class="input-group-text bg-transparent text-secondary border-secondary"><i class="fas fa-wallet"></i></span>
+                      <select id="book-budget" class="form-select" required>
+                        <option value="" disabled selected>Select budget tier...</option>
+                        <option value="Deluxe Tier (3-Star Heritage)">Deluxe Tier (3-Star Boutique/Heritage Stays)</option>
+                        <option value="Premium Tier (4-Star Resorts)">Premium Tier (4-Star Resorts & Wellness Spas)</option>
+                        <option value="Royal Luxury Tier (5-Star Palaces)">Royal Luxury Tier (5-Star Heritage Palaces e.g., Taj/Oberoi)</option>
+                      </select>
+                    </div>
+                    <div class="invalid-feedback">Please select a budget tier.</div>
+                  </div>
+
+                  <!-- Special Requirements -->
+                  <div class="col-12">
+                    <label for="book-requirements" class="form-label text-white fw-bold">Special Requirements / Custom Customizations</label>
+                    <textarea id="book-requirements" class="form-control" rows="4" placeholder="Mention preferred hotels, dietary constraints, room specifications, extra side-trips..."></textarea>
+                  </div>
+
+                  <!-- Button -->
+                  <div class="col-12 mt-4">
+                    <button type="button" id="proceed-to-summary-btn" class="btn btn-premium w-100 py-3">Proceed to Summary</button>
+                  </div>
+
+                </div>
+              </form>
+            </div>
+
+            <!-- STEP 2: Summary Receipt (hidden by default) -->
+            <div id="booking-step-2" style="display: none;">
+              <h3 class="font-serif text-gold mb-3"><i class="fas fa-file-invoice me-2"></i>Reservation Summary Review</h3>
+              <p class="text-secondary mb-4">Please verify your reservation details. Click 'Confirm Reservation' to lock your request and send details to our WhatsApp coordinator.</p>
+              
+              <div class="booking-receipt glass-panel p-4 rounded-3 mb-4 text-white">
+                <div class="receipt-header border-bottom border-secondary pb-3 mb-3 d-flex justify-content-between">
+                  <span class="fw-bold text-gold tracking-wide text-uppercase">Luxury Quote Details</span>
+                  <span class="text-secondary" id="receipt-id">ID: --</span>
+                </div>
+                
+                <div class="row g-3 receipt-body">
+                  <div class="col-md-6">
+                    <small class="text-secondary d-block">Lead Traveler</small>
+                    <span id="summary-name" class="fw-semibold">--</span>
+                  </div>
+                  <div class="col-md-6">
+                    <small class="text-secondary d-block">Contact Info</small>
+                    <span id="summary-contact" class="fw-semibold">--</span>
+                  </div>
+                  <div class="col-md-6">
+                    <small class="text-secondary d-block">Destination Region</small>
+                    <span id="summary-dest" class="fw-semibold">--</span>
+                  </div>
+                  <div class="col-md-6">
+                    <small class="text-secondary d-block">Selected Package</small>
+                    <span id="summary-package" class="fw-semibold">--</span>
+                  </div>
+                  <div class="col-md-6">
+                    <small class="text-secondary d-block">Date of Travel</small>
+                    <span id="summary-date" class="fw-semibold">--</span>
+                  </div>
+                  <div class="col-md-6">
+                    <small class="text-secondary d-block">Travelers Count</small>
+                    <span id="summary-travelers" class="fw-semibold">--</span>
+                  </div>
+                  <div class="col-12">
+                    <small class="text-secondary d-block">Accommodation Tier</small>
+                    <span id="summary-budget" class="fw-semibold text-gold">--</span>
+                  </div>
+                  <div class="col-12 border-top border-secondary pt-3 mt-3">
+                    <small class="text-secondary d-block">Special Customizations</small>
+                    <span id="summary-requirements" class="italic-text">None</span>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Action buttons -->
+              <div class="d-flex gap-3 mt-4">
+                <button type="button" id="edit-booking-btn" class="btn btn-premium-outline w-50 py-3"><i class="fas fa-edit me-2"></i>Edit Details</button>
+                <button type="button" id="confirm-booking-btn" class="btn btn-premium w-50 py-3"><i class="fab fa-whatsapp me-2"></i>Confirm & Book</button>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Reservation Success Modal (Floating) -->
+  <div id="booking-success-modal" class="success-modal" role="dialog" aria-modal="true" aria-labelledby="modal-title">
+    <div class="success-modal-card">
+      <div class="success-modal-icon" aria-hidden="true"><i class="fas fa-check"></i></div>
+      <h3 id="modal-title" class="font-serif text-white mb-2">Reservation Request Locked!</h3>
+      <p class="text-secondary mb-4">
+        Thank you for choosing Explore Incredible India. Your custom luxury travel details are successfully verified.
+      </p>
+      
+      <div class="glass-panel text-start p-3 rounded-3 mb-4 text-white">
+        <p class="mb-2"><i class="fas fa-user text-gold me-2"></i><strong>Name:</strong> <span id="modal-summary-name">--</span></p>
+        <p class="mb-2"><i class="fas fa-compass text-gold me-2"></i><strong>Package:</strong> <span id="modal-summary-package">--</span></p>
+        <p class="mb-0"><i class="fab fa-whatsapp text-gold me-2"></i><strong>Coordinator Link:</strong> Auto-generating WhatsApp details...</p>
+      </div>
+
+      <p class="text-secondary small mb-4">
+        <i class="fas fa-info-circle text-gold me-1"></i> We are redirecting you to WhatsApp to complete your reservations with our local concierge. Click the button below if it does not redirect automatically.
+      </p>
+      
+      <a href="#" id="modal-whatsapp-redirect-btn" target="_blank" rel="noopener noreferrer" class="btn btn-premium w-100 py-3">
+        <i class="fab fa-whatsapp me-2"></i>Continue to WhatsApp
+      </a>
+      <button type="button" id="modal-close-btn" class="btn btn-premium-outline w-100 mt-2 py-2">Return to Site</button>
+    </div>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="footer-about">
+            <a href="index.html" class="footer-about-logo">
+              <i class="fas fa-dharmachakra text-gold"></i>
+              <span>Incredible India</span>
+            </a>
+            <p class="footer-about-text">
+              Explore Incredible India is a premier luxury travel management firm creating bespoke itineraries, cultural excursions, and high-end journeys across the Indian subcontinent since 2011.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="packages.html">Tour Packages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-title">Top Packages</h3>
+          <ul class="footer-links">
+            <li><a href="package-details.html?package=golden-triangle-tour">Golden Triangle Tour</a></li>
+            <li><a href="package-details.html?package=royal-rajasthan-tour">Royal Rajasthan Tour</a></li>
+            <li><a href="package-details.html?package=kerala-paradise">Kerala Paradise Tour</a></li>
+            <li><a href="package-details.html?package=kashmir-delight">Kashmir Delight Tour</a></li>
+            <li><a href="package-details.html?package=himalayan-adventure">Himalayan Adventure</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h3 class="footer-title">Newsletter</h3>
+          <p class="footer-newsletter-text">Subscribe to receive secret luxury flight deals and curated travel brochures.</p>
+          <form class="newsletter-form">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address" required>
+              <button class="btn btn-newsletter" type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">&copy; 2026 Explore Incredible India. All Rights Reserved. Crafted for Luxury Travel.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="footer-bottom-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Navigation Elements -->
+  <div class="floating-book-btn">
+    <a href="https://wa.me/919876543210" class="float-action-btn btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" id="back-to-top" class="float-action-btn btn-back-to-top" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+
+  <!-- JS Scripts -->
+  <!-- Include data first, then jQuery/Bootstrap, then our script -->
+  <script src="js/packages-data.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-quad'
+    });
+  </script>
+</body>
+</html>

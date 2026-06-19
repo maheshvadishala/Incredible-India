@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Booking successful. Your luxury reservation details are locked, confirmation email is sent, and WhatsApp coordinator is triggered.">
+  <title>Booking Confirmed | Explore Incredible India</title>
+  
+  <!-- CSS Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="loader-spinner" role="status"></div>
+    <div class="loader-text">CONFIRMING...</div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom scrolled" id="main-navbar">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <i class="fas fa-dharmachakra fa-spin text-gold" style="animation-duration: 20s;"></i>
+        <span>Incredible India</span>
+      </a>
+      
+      <button class="navbar-toggler navbar-toggler-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon-custom"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 navbar-collapse-custom">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="destinations.html">Destinations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="packages.html">Tour Packages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center gap-3">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+            <i class="fas fa-sun"></i>
+          </button>
+          <a href="booking.html" class="btn btn-premium">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <section class="page-banner" style="background-image: url('https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&q=80&w=1920');">
+    <div class="page-banner-content">
+      <div class="container text-center">
+        <span class="page-breadcrumb">Reservation Success</span>
+        <h1 class="page-banner-title">Booking Completed</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Success Confirmation Card -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-lg-8" data-aos="fade-up">
+          
+          <div class="glass-card p-5 text-center mb-4">
+            <!-- Huge Check Icon -->
+            <div class="success-modal-icon mb-4"><i class="fas fa-check-double"></i></div>
+            
+            <h2 class="font-serif text-white display-6 mb-2">Booking Submitted Successfully!</h2>
+            <p class="text-secondary fs-5">Thank you for selecting Explore Incredible India. Your reservation request is securely locked in.</p>
+            
+            <!-- Reference Code Alert Box -->
+            <div class="alert bg-gold text-dark border-0 py-3 my-4">
+              <span class="text-uppercase tracking-wider fw-semibold small d-block mb-1">Your Booking Reference Code</span>
+              <h3 class="font-sans fw-bold mb-0" id="success-ref-code">CP-XXXXXX</h3>
+            </div>
+
+            <!-- Status Checkmarks Grid -->
+            <div class="row g-3 my-4 text-start justify-content-center">
+              <div class="col-sm-6 col-md-5">
+                <div class="status-step-card glass-panel p-3 rounded d-flex align-items-center gap-3">
+                  <div class="status-step-icon text-success"><i class="fas fa-check-circle fa-lg"></i></div>
+                  <div>
+                    <span class="text-white fw-bold d-block small">Booking Saved</span>
+                    <small class="text-secondary">Logged in Database</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-5">
+                <div class="status-step-card glass-panel p-3 rounded d-flex align-items-center gap-3">
+                  <div class="status-step-icon text-success"><i class="fas fa-check-circle fa-lg"></i></div>
+                  <div>
+                    <span class="text-white fw-bold d-block small">Email Sent Successfully</span>
+                    <small class="text-secondary">Confirmation Dispatch</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-5">
+                <div class="status-step-card glass-panel p-3 rounded d-flex align-items-center gap-3">
+                  <div class="status-step-icon text-success"><i class="fas fa-check-circle fa-lg"></i></div>
+                  <div>
+                    <span class="text-white fw-bold d-block small">Admin Notified</span>
+                    <small class="text-secondary">Notification Dispatch</small>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-6 col-md-5">
+                <div class="status-step-card glass-panel p-3 rounded d-flex align-items-center gap-3">
+                  <div class="status-step-icon text-success"><i class="fas fa-check-circle fa-lg"></i></div>
+                  <div>
+                    <span class="text-white fw-bold d-block small">WhatsApp Generated</span>
+                    <small class="text-secondary">Prefilled API Dispatch</small>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Booking Details summary block -->
+            <div class="booking-receipt text-start p-4 rounded-3 text-white mb-4">
+              <h4 class="font-serif text-gold border-bottom border-secondary pb-2 mb-3">Reservation Details Summary</h4>
+              <div class="row g-2">
+                <div class="col-6"><span class="text-secondary small">Lead Traveler:</span> <span id="rec-name" class="d-block fw-bold">--</span></div>
+                <div class="col-6"><span class="text-secondary small">Contact Info:</span> <span id="rec-contact" class="d-block">--</span></div>
+                <div class="col-6"><span class="text-secondary small">Tour Package:</span> <span id="rec-package" class="d-block fw-bold text-gold">--</span></div>
+                <div class="col-6"><span class="text-secondary small">Travel Date:</span> <span id="rec-date" class="d-block">--</span></div>
+                <div class="col-6"><span class="text-secondary small">Travelers Count:</span> <span id="rec-travelers" class="d-block">--</span></div>
+                <div class="col-6"><span class="text-secondary small">Budget Tier:</span> <span id="rec-budget" class="d-block">--</span></div>
+                <div class="col-12 border-top border-secondary pt-2 mt-2">
+                  <span class="text-secondary small">Custom Requirements:</span>
+                  <p id="rec-requirements" class="mb-0 italic-text small">--</p>
+                </div>
+              </div>
+            </div>
+
+            <p class="text-secondary mb-4 small">
+              <i class="fas fa-info-circle text-gold me-1"></i> A WhatsApp request has been opened in a new tab. If it did not open automatically, please click below to chat directly with our advisor.
+            </p>
+
+            <!-- Actions buttons -->
+            <div class="d-flex flex-column gap-2 max-width-md mx-auto">
+              <a href="#" id="wa-manual-btn" target="_blank" rel="noopener noreferrer" class="btn btn-premium py-3">
+                <i class="fab fa-whatsapp me-2"></i>Open WhatsApp Manually
+              </a>
+              <a href="index.html" class="btn btn-premium-outline py-2">Return to Home Page</a>
+            </div>
+
+          </div>
+
+          <!-- Customer Support Card -->
+          <div class="glass-card p-4 text-start">
+            <h4 class="font-serif text-gold mb-3"><i class="fas fa-headset me-2"></i>Need Immediate Help? Contact Our Support Office</h4>
+            <div class="row g-3 text-secondary">
+              <div class="col-md-6">
+                <p class="mb-1"><i class="fas fa-phone-alt text-gold me-2"></i><strong>24/7 Helpline:</strong> +91 98765 43210</p>
+                <p class="mb-0"><i class="fab fa-whatsapp text-gold me-2"></i><strong>WhatsApp Support:</strong> +91 98765 43210</p>
+              </div>
+              <div class="col-md-6">
+                <p class="mb-1"><i class="fas fa-envelope text-gold me-2"></i><strong>Concierge Email:</strong> concierge@incredibleindia.com</p>
+                <p class="mb-0"><i class="fas fa-history text-gold me-2"></i><strong>Working Hours:</strong> Mon - Sun (24 Hours Desk)</p>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="footer-about">
+            <a href="index.html" class="footer-about-logo">
+              <i class="fas fa-dharmachakra text-gold"></i>
+              <span>Incredible India</span>
+            </a>
+            <p class="footer-about-text">
+              Explore Incredible India is a premier luxury travel management firm creating bespoke itineraries, cultural excursions, and high-end journeys across the Indian subcontinent since 2011.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="packages.html">Tour Packages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-title">Top Packages</h3>
+          <ul class="footer-links">
+            <li><a href="package-details.html?package=golden-triangle-tour">Golden Triangle Tour</a></li>
+            <li><a href="package-details.html?package=royal-rajasthan-tour">Royal Rajasthan Tour</a></li>
+            <li><a href="package-details.html?package=kerala-paradise">Kerala Paradise Tour</a></li>
+            <li><a href="package-details.html?package=kashmir-delight">Kashmir Delight Tour</a></li>
+            <li><a href="package-details.html?package=himalayan-adventure">Himalayan Adventure</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h3 class="footer-title">Newsletter</h3>
+          <p class="footer-newsletter-text">Subscribe to receive secret luxury flight deals and curated travel brochures.</p>
+          <form class="newsletter-form">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address" required>
+              <button class="btn btn-newsletter" type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">&copy; 2026 Explore Incredible India. All Rights Reserved. Crafted for Luxury Travel.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="footer-bottom-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Navigation Elements -->
+  <div class="floating-book-btn">
+    <a href="https://wa.me/919876543210" class="float-action-btn btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" id="back-to-top" class="float-action-btn btn-back-to-top" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      // Hide preloader
+      const preloader = document.getElementById('preloader');
+      if (preloader) {
+        setTimeout(() => {
+          preloader.style.opacity = '0';
+          setTimeout(() => { preloader.style.display = 'none'; }, 500);
+        }, 500);
+      }
+
+      // Back to top
+      const backToTopBtn = document.getElementById('back-to-top');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 100) {
+          backToTopBtn.classList.add('show');
+        } else {
+          backToTopBtn.classList.remove('show');
+        }
+      });
+      backToTopBtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      });
+
+      // Parse Query Parameters
+      const urlParams = new URLSearchParams(window.location.search);
+      const bookingId = urlParams.get('id') || 'CP-' + Math.floor(100000 + Math.random() * 900000);
+      const name = urlParams.get('name') || 'Guest Traveler';
+      const phone = urlParams.get('phone') || '--';
+      const email = urlParams.get('email') || '--';
+      const destination = urlParams.get('destination') || '--';
+      const packageSelected = urlParams.get('package') || 'Custom Itinerary';
+      const travelDate = urlParams.get('date') || '--';
+      const travelers = urlParams.get('travelers') || '1';
+      const budget = urlParams.get('budget') || '--';
+      const requirements = urlParams.get('requirements') || 'None';
+
+      // Update values in DOM
+      document.getElementById('success-ref-code').innerText = bookingId;
+      document.getElementById('rec-name').innerText = name;
+      document.getElementById('rec-contact').innerText = `${phone} | ${email}`;
+      document.getElementById('rec-package').innerText = packageSelected;
+      document.getElementById('rec-date').innerText = travelDate;
+      document.getElementById('rec-travelers').innerText = `${travelers} Person(s)`;
+      document.getElementById('rec-budget').innerText = budget;
+      document.getElementById('rec-requirements').innerText = requirements;
+
+      // Compile WhatsApp redirect message
+      const whatsappMsg = `🌟 *EXPLORE INCREDIBLE INDIA - RESERVATION* 🌟\n\n` +
+                          `🧾 *Booking Ref:* ${bookingId}\n` +
+                          `👤 *Lead Traveler:* ${name}\n` +
+                          `📞 *Phone Number:* ${phone}\n` +
+                          `✉️ *Email Address:* ${email}\n\n` +
+                          `✈️ *Itinerary Details:*\n` +
+                          `- *Destination:* ${destination}\n` +
+                          `- *Tour Package:* ${packageSelected}\n` +
+                          `- *Travel Date:* ${travelDate}\n` +
+                          `- *Travelers Count:* ${travelers} Persons\n` +
+                          `- *Accommodation:* ${budget}\n\n` +
+                          `📝 *Special Customizations:*\n` +
+                          `_${requirements}_\n\n` +
+                          `Thank you! Looking forward to confirming my booking.`;
+      
+      const whatsappUrl = `https://wa.me/7660087770?text=${encodeURIComponent(whatsappMsg)}`;
+      document.getElementById('wa-manual-btn').href = whatsappUrl;
+
+      // Initialize AOS animations
+      AOS.init({ duration: 1000, once: true });
+    });
+  </script>
+</body>
+</html>

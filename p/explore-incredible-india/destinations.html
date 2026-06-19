@@ -1,0 +1,666 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore luxury destinations in India. Discover details, starting price rates, durations, and itineraries for major attractions in North India and South India.">
+  <title>Curated Destinations | Explore Incredible India</title>
+  
+  <!-- CSS Stylesheets -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+  <link href="css/style.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Scroll Progress Bar -->
+  <div id="scroll-progress" aria-hidden="true"></div>
+
+  <!-- Preloader Screen -->
+  <div id="preloader">
+    <div class="loader-spinner" role="status"></div>
+    <div class="loader-text">EXPLORE DESTINATIONS</div>
+  </div>
+
+  <!-- Sticky Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-custom scrolled" id="main-navbar">
+    <div class="container">
+      <a class="navbar-brand navbar-brand-custom" href="index.html">
+        <i class="fas fa-dharmachakra fa-spin text-gold" style="animation-duration: 20s;"></i>
+        <span>Incredible India</span>
+      </a>
+      
+      <button class="navbar-toggler navbar-toggler-custom" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon-custom"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav mx-auto mb-2 mb-lg-0 navbar-collapse-custom">
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom active" href="destinations.html">Destinations</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="packages.html">Tour Packages</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="gallery.html">Gallery</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link nav-link-custom" href="contact.html">Contact</a>
+          </li>
+        </ul>
+        
+        <div class="d-flex align-items-center gap-3">
+          <button id="theme-toggle" class="theme-toggle-btn" aria-label="Toggle dark/light theme">
+            <i class="fas fa-sun"></i>
+          </button>
+          <a href="booking.html" class="btn btn-premium">Book Now</a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Page Banner -->
+  <section class="page-banner" style="background-image: url('https://images.unsplash.com/photo-1506461883276-594a12b11db3?auto=format&fit=crop&q=80&w=1920');">
+    <div class="page-banner-content">
+      <div class="container">
+        <span class="page-breadcrumb">Indian Subcontinent</span>
+        <h1 class="page-banner-title">Our Curated Destinations</h1>
+      </div>
+    </div>
+  </section>
+
+  <!-- Filter & Search Controls -->
+  <section class="container section-padding pb-0">
+    <div class="glass-panel filter-search-container p-4 rounded-4" data-aos="fade-up">
+      <div class="row g-4 align-items-center">
+        <!-- Search bar -->
+        <div class="col-lg-5">
+          <div class="search-bar-wrap">
+            <i class="fas fa-search" aria-hidden="true"></i>
+            <input type="text" id="dest-search" class="form-control" placeholder="Search by name, features, or experiences...">
+          </div>
+        </div>
+        <!-- Filter Category Tabs -->
+        <div class="col-lg-7 text-lg-end">
+          <div class="filter-btn-group justify-content-lg-end">
+            <button class="filter-btn active" data-filter="all">All Regions</button>
+            <button class="filter-btn" data-filter="north">North India</button>
+            <button class="filter-btn" data-filter="south">South India</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Destinations Grid Section -->
+  <section class="section-padding">
+    <div class="container">
+      <div class="row g-4" id="destinations-grid">
+        
+        <!-- ==================== NORTH INDIA ==================== -->
+        <!-- Delhi -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="north" data-aos="fade-up" data-aos-delay="50">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1587474260584-136574528ed5?auto=format&fit=crop&q=80&w=600" alt="New Delhi Heritage">
+              <span class="dest-badge">North India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.8</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Delhi</h3>
+              <p class="dest-desc">The historic capital combining ancient Mughal relics with modern imperial architecture and bustling street markets.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹12,500</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Delhi&package=Delhi-City-Tour&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Agra -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="north" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&q=80&w=600" alt="Agra Taj Mahal">
+              <span class="dest-badge">North India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Agra</h3>
+              <p class="dest-desc">Home to the world's emblem of love—the Taj Mahal, alongside the majestic Agra Fort and Emperor Akbar's Fatehpur Sikri.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹14,999</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 2 Days</div>
+              </div>
+              <a href="contact.html?destination=Agra&package=Agra-Taj-Escape&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Jaipur -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="north" data-aos="fade-up" data-aos-delay="150">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1477584322813-ac789ee9931b?auto=format&fit=crop&q=80&w=600" alt="Jaipur Pink City">
+              <span class="dest-badge">North India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.8</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Jaipur</h3>
+              <p class="dest-desc">The royal Pink City of Rajasthan. Renowned for its spectacular forts, astrological observatories, and vibrant gems market.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹18,500</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Jaipur&package=Royal-Jaipur-Getaway&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Udaipur -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="north" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1595658658481-d53d3f999875?auto=format&fit=crop&q=80&w=600" alt="Udaipur City Palace">
+              <span class="dest-badge">North India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Udaipur</h3>
+              <p class="dest-desc">The Venice of the East, boasting serene lakes, lakeside luxury palaces, floating pavilions, and romantic mountain backdrops.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹22,000</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Udaipur&package=Udaipur-Lakeside-Breeze&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kashmir -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="north" data-aos="fade-up" data-aos-delay="250">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1566837945700-30057527ade0?auto=format&fit=crop&q=80&w=600" alt="Kashmir Houseboats">
+              <span class="dest-badge">North India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Kashmir</h3>
+              <p class="dest-desc">Heaven on earth. Famed for its Dal Lake wooden houseboats, flower meadows, snow peaks, and saffron gardens.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹29,999</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 5 Days</div>
+              </div>
+              <a href="contact.html?destination=Kashmir&package=Kashmir-Alpine-Lakes&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Shimla -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="north" data-aos="fade-up" data-aos-delay="300">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1562979314-bee7453e911c?auto=format&fit=crop&q=80&w=600" alt="Shimla Toy Train">
+              <span class="dest-badge">North India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.6</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Shimla</h3>
+              <p class="dest-desc">The historic British summer capital. Home to colonial architectures, Mall Road shopping, and the iconic Toy Train track.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹16,500</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 4 Days</div>
+              </div>
+              <a href="contact.html?destination=Shimla&package=Colonial-Shimla-Escape&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Manali -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="north" data-aos="fade-up" data-aos-delay="350">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1605649487212-47bdab064df7?auto=format&fit=crop&q=80&w=600" alt="Manali Snow Slopes">
+              <span class="dest-badge">North India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.7</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Manali</h3>
+              <p class="dest-desc">An alpine sanctuary, popular for Solang valley skiing, river rafting, and traversing the high-altitude Atal Tunnel.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹19,000</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 5 Days</div>
+              </div>
+              <a href="contact.html?destination=Manali&package=Manali-Adventure-Trek&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Leh Ladakh -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="north" data-aos="fade-up" data-aos-delay="400">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1596895111956-bf1cf0599ce5?auto=format&fit=crop&q=80&w=600" alt="Ladakh Pangong Lake">
+              <span class="dest-badge">North India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Leh Ladakh</h3>
+              <p class="dest-desc">A cold desert wonderland characterized by rugged valleys, turquoise Pangong lake, Buddhist monasteries, and high passes.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹38,000</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 7 Days</div>
+              </div>
+              <a href="contact.html?destination=Leh-Ladakh&package=Leh-Ladakh-Odyssey&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Amritsar -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="north" data-aos="fade-up" data-aos-delay="450">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1514222134-b57cbb8ce073?auto=format&fit=crop&q=80&w=600" alt="Amritsar Golden Temple">
+              <span class="dest-badge">North India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.8</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Amritsar</h3>
+              <p class="dest-desc">A city of spiritual devotion housing the Golden Temple, hosting culinary heritage, and celebrating patriotic Wagah Border rituals.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹12,000</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 2 Days</div>
+              </div>
+              <a href="contact.html?destination=Amritsar&package=Amritsar-Spiritual-Sojourn&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Rishikesh -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="north" data-aos="fade-up" data-aos-delay="500">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1598977123418-45f04b616a4e?auto=format&fit=crop&q=80&w=600" alt="Rishikesh Ganga Aarti">
+              <span class="dest-badge">North India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.7</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Rishikesh</h3>
+              <p class="dest-desc">The yoga capital of the world, offering sacred Ganga Aarti rituals, rafting sports, and forest meditation ashrams.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹14,500</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Rishikesh&package=Rishikesh-Yoga-Retreat&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- ==================== SOUTH INDIA ==================== -->
+        <!-- Hyderabad -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="50">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1608958415210-449e0b571168?auto=format&fit=crop&q=80&w=600" alt="Hyderabad Charminar">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.7</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Hyderabad</h3>
+              <p class="dest-desc">The City of Nizams, merging centuries-old Charminar culture and world-famous Biryani with futuristic IT hubs.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹15,000</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Hyderabad&package=Nizams-Heritage-Tour&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Tirupati -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="100">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&q=80&w=600" alt="Tirupati Temple">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Tirupati</h3>
+              <p class="dest-desc">Home of the sacred Tirumala Venkateswara Temple, a legendary hill shrine celebrating holy Vedic architectures.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹11,000</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 2 Days</div>
+              </div>
+              <a href="contact.html?destination=Tirupati&package=Tirumala-Divine-Darshan&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Chennai -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="150">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1601999109332-542b18dbec57?auto=format&fit=crop&q=80&w=600" alt="Chennai Coast">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.6</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Chennai</h3>
+              <p class="dest-desc">The cultural gateway of South India, showcasing classical Carnatic arts, historic churches, and the sandy Marina Beach.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹13,500</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Chennai&package=Chennai-Coastal-Charm&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Pondicherry -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="200">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1589136775551-3cf476904037?auto=format&fit=crop&q=80&w=600" alt="Pondicherry French Streets">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.8</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Pondicherry</h3>
+              <p class="dest-desc">A beautiful French colonial settlement. Stroll past bright yellow structures, enjoy coastal cafes, and visit Auroville.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹16,000</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Pondicherry&package=French-Riviera-Escape&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bengaluru -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="250">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1596176530529-78163a4f7af2?auto=format&fit=crop&q=80&w=600" alt="Bengaluru Lalbagh">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.6</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Bengaluru</h3>
+              <p class="dest-desc">The Silicon Valley of India, famed for its lush garden parks, microbreweries, palace complexes, and pleasant weather.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹14,000</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Bengaluru&package=Bengaluru-Silicon-Tour&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mysuru -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="300">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1590050752117-238cb0612b1b?auto=format&fit=crop&q=80&w=600" alt="Mysuru Palace">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.8</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Mysuru</h3>
+              <p class="dest-desc">The City of Palaces, highly celebrated for its illuminated royal court structures, sandalwood oil, and heritage Dasara festivals.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹15,500</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 2 Days</div>
+              </div>
+              <a href="contact.html?destination=Mysuru&package=Royal-Mysore-Sojourn&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Ooty -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="350">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1593181629936-11c609b8db9b?auto=format&fit=crop&q=80&w=600" alt="Ooty Nilgiri Tea Hills">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.7</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Ooty</h3>
+              <p class="dest-desc">The Queen of Hill Stations, nestled in Nilgiri range tea estates, botanical gardens, and pine valleys.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹17,000</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Ooty&package=Ooty-Nilgiri-Breeze&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Coorg -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="400">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1584847701761-fa89a9f24cc3?auto=format&fit=crop&q=80&w=600" alt="Coorg Coffee Estate">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.7</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Coorg</h3>
+              <p class="dest-desc">The Scotland of India. An expansive mist-covered paradise hosting cardamon and coffee plantation valleys.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹18,500</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Coorg&package=Mist-of-Coorg-Resort&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Munnar -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="450">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1593693397690-362cb9666fc2?auto=format&fit=crop&q=80&w=600" alt="Munnar Tea Hills">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Munnar</h3>
+              <p class="dest-desc">Picturesque spice and tea plantation slopes in Kerala, famous for cloud valleys and Nilgiri Tahr safari walks.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹21,000</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 4 Days</div>
+              </div>
+              <a href="contact.html?destination=Munnar&package=Munnar-Tea-Sanctuary&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kochi -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="500">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1588668214407-6797a70b2f22?auto=format&fit=crop&q=80&w=600" alt="Kochi Fishing Nets">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.7</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Kochi</h3>
+              <p class="dest-desc">A spice trading harbor showing Jewish synagogues, Portuguese palaces, and iconic Chinese fishing nets.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹14,000</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Kochi&package=Heritage-Kochi-Experience&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Alleppey -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="550">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1593693411515-c202e974fe08?auto=format&fit=crop&q=80&w=600" alt="Alleppey Backwaters">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Alleppey</h3>
+              <p class="dest-desc">Venice of the East. Float along coconut-fringed backwater channels in standard and luxury houseboats.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹24,500</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 3 Days</div>
+              </div>
+              <a href="contact.html?destination=Alleppey&package=Alleppey-Houseboat-Cruise&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Kanyakumari -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="600">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1544256718-3bcf237f3974?auto=format&fit=crop&q=80&w=600" alt="Kanyakumari Monument">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.7</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Kanyakumari</h3>
+              <p class="dest-desc">The southernmost tip of mainland India. View sunsets and rises from the confluence of three oceans at Vivekananda rock.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹16,500</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 2 Days</div>
+              </div>
+              <a href="contact.html?destination=Kanyakumari&package=Three-Oceans-Darshan&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Hampi -->
+        <div class="col-md-6 col-lg-4 destination-card-item" data-category="south" data-aos="fade-up" data-aos-delay="650">
+          <div class="glass-card destination-card">
+            <div class="dest-img-wrap">
+              <img class="dest-img" src="https://images.unsplash.com/photo-1600100397608-f010e423b971?auto=format&fit=crop&q=80&w=600" alt="Hampi Ruins">
+              <span class="dest-badge">South India</span>
+              <div class="dest-rating"><i class="fas fa-star" aria-hidden="true"></i> 4.9</div>
+            </div>
+            <div class="dest-body">
+              <h3 class="dest-title">Hampi</h3>
+              <p class="dest-desc">A magnificent UNESCO World Heritage Site showing the ruins of the Vijayanagara Empire amidst giant granite boulders.</p>
+              <div class="dest-meta">
+                <div class="dest-price">Starting From<span>₹19,999</span></div>
+                <div class="dest-duration"><i class="far fa-clock" aria-hidden="true"></i> 4 Days</div>
+              </div>
+              <a href="contact.html?destination=Hampi&package=Vijayanagara-Stone-Palace&travelers=2" class="btn btn-premium w-100 mt-4">Explore Tour</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer Section -->
+  <footer class="footer-section">
+    <div class="container">
+      <div class="row g-4">
+        <div class="col-lg-4">
+          <div class="footer-about">
+            <a href="index.html" class="footer-about-logo">
+              <i class="fas fa-dharmachakra text-gold"></i>
+              <span>Incredible India</span>
+            </a>
+            <p class="footer-about-text">
+              Explore Incredible India is a premier luxury travel management firm creating bespoke itineraries, cultural excursions, and high-end journeys across the Indian subcontinent since 2011.
+            </p>
+            <div class="social-links">
+              <a href="#" class="social-icon" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+              <a href="#" class="social-icon" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+              <a href="#" class="social-icon" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+              <a href="#" class="social-icon" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-6 col-lg-2">
+          <h3 class="footer-title">Quick Links</h3>
+          <ul class="footer-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="destinations.html">Destinations</a></li>
+            <li><a href="packages.html">Tour Packages</a></li>
+            <li><a href="gallery.html">Gallery</a></li>
+            <li><a href="contact.html">Contact</a></li>
+          </ul>
+        </div>
+
+        <div class="col-6 col-lg-3">
+          <h3 class="footer-title">Top Packages</h3>
+          <ul class="footer-links">
+            <li><a href="package-details.html?package=golden-triangle-tour">Golden Triangle Tour</a></li>
+            <li><a href="package-details.html?package=royal-rajasthan-tour">Royal Rajasthan Tour</a></li>
+            <li><a href="package-details.html?package=kerala-paradise">Kerala Paradise Tour</a></li>
+            <li><a href="package-details.html?package=kashmir-delight">Kashmir Delight Tour</a></li>
+            <li><a href="package-details.html?package=himalayan-adventure">Himalayan Adventure</a></li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3">
+          <h3 class="footer-title">Newsletter</h3>
+          <p class="footer-newsletter-text">Subscribe to receive secret luxury flight deals and curated travel brochures.</p>
+          <form class="newsletter-form">
+            <div class="input-group">
+              <input type="email" class="form-control" placeholder="Your email address" aria-label="Your email address" required>
+              <button class="btn btn-newsletter" type="submit" aria-label="Subscribe"><i class="fas fa-paper-plane"></i></button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div class="row align-items-center">
+          <div class="col-md-6 text-center text-md-start">
+            <p class="mb-0">&copy; 2026 Explore Incredible India. All Rights Reserved. Crafted for Luxury Travel.</p>
+          </div>
+          <div class="col-md-6 text-center text-md-end">
+            <div class="footer-bottom-links">
+              <a href="#">Privacy Policy</a>
+              <a href="#">Terms of Service</a>
+              <a href="#">Sitemap</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Floating Navigation Elements -->
+  <div class="floating-book-btn">
+    <a href="https://wa.me/919876543210" class="float-action-btn btn-whatsapp" target="_blank" rel="noopener noreferrer" aria-label="Contact us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="#" id="back-to-top" class="float-action-btn btn-back-to-top" aria-label="Scroll to top">
+      <i class="fas fa-arrow-up"></i>
+    </a>
+  </div>
+
+  <!-- JS Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+  <script src="js/script.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true,
+      easing: 'ease-out-quad'
+    });
+  </script>
+</body>
+</html>
